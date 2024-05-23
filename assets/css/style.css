@@ -1,0 +1,59 @@
+
+:root{
+    --primary : #7559ff;
+}
+
+body{
+    background:#ffffff;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.highlight{
+    color: #7559ff;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: "Marcellus", serif;
+    
+}
+
+p{
+    
+    color: #303030;
+}
+
+.w-text{
+    width: 35vw;
+}
+
+.btn-primary{
+    background: var(--primary);
+    border-radius: 500px;
+    width: 13vw;
+    padding: 10px;
+    font-size: 15px;
+    
+}
+
+.banner{
+    border-radius: 18px;
+    width: 90%;
+    margin: 0 auto;
+    box-shadow: 0 0 20px 0 #d5d5d5;
+}
+
+.btnnav{
+    width: 8vw;
+    padding: 8px;
+}
+
+.card{
+    border: none;
+    border-radius: 30px;
+    box-shadow:  0 0 20px 0 #b9b9b9;
+    margin: 25px;
+}
+
+.card img{
+    height: 160px;
+}
