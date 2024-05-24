@@ -24,25 +24,26 @@
 
    <div class="container my-5 p-5">
     <h1 class="display-4 text-center mb-5">Reach Out To Us</h1>
-    <!-- <form class=" m-auto border-1 border p-5"  method="POST" name="contact" >
+
+    <form class=" m-auto border-1 border p-5"  method="POST" name="contact"  data-netlify="true">
       <div class="mb-3">
         <label for="Email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" required>
+        <input type="email" class="form-control" id="Email" name="email" aria-describedby="emailHelp" required>
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
       </div>
       <div class="mb-3">
         <label for="name" class="form-label">Full Name</label>
-        <input type="text" class="form-control" id="name" required>
+        <input type="text" class="form-control" name="name" id="name" required>
       </div>
       
       <div class="mb-3">
-        <label for="subject" class="form-label">Subject</label>
-        <input type="text" class="form-control" id="subject" required>
+        <label for="subject"  class="form-label">Subject</label>
+        <input type="text" class="form-control" name="subject" id="subject" required>
       </div>
 
       <div class="mb-3">
         <label for="category" class="form-label">Category</label>
-        <select class="form-select" required>
+        <select class="form-select" name="category" required>
           <option >Choose Category</option>
           <option value="Internship">Internship</option>
           <option value="business">Business Query</option>
@@ -55,37 +56,14 @@
       
       <div class="mb-3">
         <label for="message" class="form-label">Message</label>
-        <textarea class="form-control" id="message" rows="6" required></textarea>
+        <textarea class="form-control" name="message" id="message" rows="6" required></textarea>
       </div>
      
       
       <button type="submit" class="btn btn-primary">Submit</button>
-    </form> -->
+    </form>
    </div>
 
-   <div class="CONTAINER">
-    <form name="contact" method="POST" data-netlify="true">
-      <p>
-        <label>Your Name: <input type="text" name="name" /></label>
-      </p>
-      <p>
-        <label>Your Email: <input type="email" name="email" /></label>
-      </p>
-      <p>
-        <label>Your Role: <select name="role[]" multiple>
-          <option value="leader">Leader</option>
-          <option value="follower">Follower</option>
-        </select></label>
-      </p>
-      <p>
-        <label>Message: <textarea name="message"></textarea></label>
-      </p>
-      <p>
-        <button type="submit">Send</button>
-      </p>
-    </form>
-    
-   </div>
 
     <!-- Components -->
     <script src="/assets/js/component.js"></script>
