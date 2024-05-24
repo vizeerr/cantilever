@@ -57,3 +57,14 @@ p{
 .card img{
     height: 160px;
 }
+
+.testimonial .card{
+    border-radius: 20px;
+    background: #ffffff;
+}
+
+.testimonial .card img{
+    height: auto;
+    width: 100%;
+    border-radius: 50px;
+}
