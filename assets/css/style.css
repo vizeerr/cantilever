@@ -48,11 +48,10 @@ p{
 }
 
 .card{
-    /* border: none; */
+    border: none;
     border-radius: 25px;
-    /* box-shadow:  0 0 20px 0 #b9b9b9; */
+    box-shadow: 0 0 20px 0 #ebe4e4;
     margin: 25px;
-    overflow: hidden;
 }
 
 .card img{
@@ -80,6 +79,14 @@ form{
     box-shadow:  0 0 20px 0 #b9b9b9;
 }
 
+footer .list-unstyled{
+    color: #d0d0d0;
+}
+
+footer .list-unstyled li{
+    margin: 10px;
+
+}
 @media only screen and (max-width: 769px) {
     .complog{
         flex-direction: column;
