@@ -29,7 +29,7 @@ p{
 .btn-primary{
     background: var(--primary);
     border-radius: 500px;
-    width: 13vw;
+    width: 12em;
     padding: 10px;
     font-size: 15px;
     
@@ -43,15 +43,16 @@ p{
 }
 
 .btnnav{
-    width: 8vw;
+    width: 8em;
     padding: 8px;
 }
 
 .card{
     /* border: none; */
-    border-radius: 30px;
+    border-radius: 25px;
     /* box-shadow:  0 0 20px 0 #b9b9b9; */
     margin: 25px;
+    overflow: hidden;
 }
 
 .card img{
@@ -67,4 +68,56 @@ p{
     height: auto;
     width: 100%;
     border-radius: 50px;
+}
+
+form{
+    margin: 0px auto ;
+    width: 75% ;
+}
+
+
+@media only screen and (max-width: 769px) {
+    .complog{
+        flex-direction: column;
+    }
+    .w-text{
+        width: 80vw;
+    }
+
+    .mfs{
+        flex-direction: column;
+    }
+    .mfsr{
+        flex-direction: column-reverse;
+    }
+    .mfs .w-75,.mfsr .w-75{
+        width: 100% !important;
+    }
+
+    .card{
+        margin: 0;
+    }
+
+    .display-3{
+        font-size: 2.5em;
+    }
+
+    footer{
+        flex-direction: column;
+        row-gap: 1em;
+    }
+}
+
+@media only screen and (max-width: 426px) {
+    .p-5{
+        padding: 1rem !important;
+    }
+    .display-3{
+        font-size: 1.8em;
+    }
+
+    form{
+        margin: 0 !important;
+        width: 98% !important;
+    }
 }
