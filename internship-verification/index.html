@@ -129,14 +129,14 @@ function settimmer() {
   }, 5000);
 }
 
-$verification_uri = "https://script.google.com/macros/s/AKfycbzOsNWHS7bSBQeyquP9pXD0vRO0LWJAn-ETpiMPWLZ4887TZPea3_V24I26-ejRjqcu/exec?id="
+
 document.getElementById('verificatonform').addEventListener('submit', (e) => {
   e.preventDefault();
   const verifidinput = document.getElementById('verifidinput').value;
   
   if (!verifdone) {
     document.getElementById('valuetable').innerHTML = "<p>Fetching...</p>";
-    const url = `${verification_uri}${verifidinput}`;
+    const url = `https://script.google.com/macros/s/AKfycbzOsNWHS7bSBQeyquP9pXD0vRO0LWJAn-ETpiMPWLZ4887TZPea3_V24I26-ejRjqcu/exec?id=${verifidinput}`;
     verifdone = true; 
     fetch(url)
       .then(response => response.json())
