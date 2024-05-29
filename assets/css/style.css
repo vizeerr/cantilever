@@ -87,6 +87,81 @@ footer .list-unstyled li{
     margin: 10px;
 
 }
+
+
+.dasboard .order-card {
+    color: #fff;
+}
+
+.dasboard .bg-c-blue {
+    background: linear-gradient(45deg,#4099ff,#73b4ff);
+}
+
+.dasboard .bg-c-green {
+    background: linear-gradient(45deg,#2ed8b6,#59e0c5);
+}
+
+.dasboard .bg-c-yellow {
+    background: linear-gradient(45deg,#FFB64D,#ffcb80);
+}
+
+.dasboard .bg-c-pink {
+    background: linear-gradient(45deg,#FF5370,#ff869a);
+}
+
+.dasboard .bg-c-purple{
+    background: linear-gradient(45deg, #f98dff, #b803e6);
+}
+
+.dasboard .bg-c-lgreen{
+    background: linear-gradient(45deg, #85ff6f, #13e800);
+}
+
+.dasboard .bg-c-red {
+    background: linear-gradient(45deg, #ff6a6a, #ff002b);
+}
+
+.dasboard .bg-c-grey {
+    background: linear-gradient(45deg, #000000, #cccccc);
+}
+
+.dasboard .card {
+    border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2.94px 0.06px rgba(0, 0, 0, 0.449);
+    box-shadow: 0 1px 2.94px 0.06px rgba(0, 0, 0, 0.333);
+    border: none;
+    margin-bottom: 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.dasboard .card .card-block {
+    padding: 25px;
+}
+
+.dasboard .order-card i {
+    font-size: 26px;
+}
+
+.dasboard .f-left {
+    float: left;
+}
+
+.dasboard .f-right {
+    float: right;
+}
+
+.dasboard p{
+    color: #fff;
+}
+.dropdown-item{
+    cursor: pointer;
+}
+
+.dasboard .dropdown-toggle::after{
+    transform: rotate(180deg);
+}
+
 @media only screen and (max-width: 769px) {
     .complog{
         flex-direction: column;
