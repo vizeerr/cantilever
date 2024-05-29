@@ -136,6 +136,10 @@ footer .list-unstyled li{
     height: 145px;
 }
 
+#verificatonform{
+    width: 90vh;
+}
+
 .dasboard .card .card-block {
     padding: 25px;
 }
@@ -159,11 +163,46 @@ footer .list-unstyled li{
     cursor: pointer;
 }
 
+.navbg{
+    width: 280px;
+    height:83vh; position:sticky; top:8.3em;
+}
 .dasboard .dropdown-toggle::after{
     transform: rotate(180deg);
 }
+.linkimg{
+    width: 400px;
+}
+
+@media only screen and (max-width: 1025px) {
+    .navbg{
+        width: 250px;
+    }
+    .dascont{
+        padding: 30px !important;
+    }
+    .dasboard .card{
+        margin: 20px 20px;
+    }
+    .dasboard .col-md-4{
+        width: 50%;
+        padding: 0;
+    }
+    
+    
+}
 
 @media only screen and (max-width: 769px) {
+    .dasboard{
+        flex-direction: column;
+    }
+    .navbg{
+        width: 95%;
+        height: auto;
+        position: relative;
+        margin: 0px auto;
+        top: 20px;
+    }
     .complog{
         flex-direction: column;
     }
@@ -193,9 +232,45 @@ footer .list-unstyled li{
         flex-direction: column;
         row-gap: 1em;
     }
+    .dascont{
+        padding: 20px !important;
+        width: 95%;
+        margin: 0px auto !important;
+        margin-bottom: 40px !important;
+    }
+
+    .linkimg{
+        width: 90%;
+    }
+    .dasboard .col-md-4 {
+        width: 100%;
+    }
+    #taskbox{
+        flex-direction: column;
+    }
+
 }
 
 @media only screen and (max-width: 426px) {
+    #verificatonform{
+        width: 99% !important;
+        margin: 0 auto;
+        font-size: 12px !important;
+        margin-top: 15px !important;
+    }
+
+    #verificatonform input{
+        font-size: 12px;
+    }
+    .input-group-text{
+        font-size: 12px;
+        padding: 10px;
+    }
+    #verificatonform .btnnav{
+        width: 10vh !important;
+        font-size: 12px !important;
+        
+    }
     .banner{
         width: 99%;
     }
