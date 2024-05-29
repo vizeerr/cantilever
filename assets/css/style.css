@@ -134,6 +134,8 @@ footer .list-unstyled li{
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
     height: 145px;
+    margin: 10px;
+    padding: 0;
 }
 
 #verificatonform{
@@ -172,6 +174,18 @@ footer .list-unstyled li{
 }
 .linkimg{
     width: 400px;
+}
+
+.dasboard .col-md-4 {
+    width: 30%;
+    padding: 0;
+}
+
+@media only screen and (max-width: 1220px) {
+    
+    .dasboard .col-md-4 {
+        width: 45%;
+    }
 }
 
 @media only screen and (max-width: 1025px) {
