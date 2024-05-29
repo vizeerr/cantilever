@@ -122,7 +122,7 @@ footer .list-unstyled li{
 }
 
 .dasboard .bg-c-grey {
-    background: linear-gradient(45deg, #000000, #cccccc);
+    background: linear-gradient(45deg, #8f8f8f, #3a2f2f);
 }
 
 .dasboard .card {
@@ -133,6 +133,7 @@ footer .list-unstyled li{
     margin-bottom: 30px;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+    height: 145px;
 }
 
 .dasboard .card .card-block {

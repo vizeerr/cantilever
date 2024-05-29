@@ -144,7 +144,7 @@
           <div class="col-md-4 col-xl-4">
               <div class="card bg-c-blue order-card">
                   <div class="card-block">
-                    <h6 class="m-b-20">Domain</h6>
+                    <h6 class="m-b-20">Internship Domain</h6>
                     <h4 class="m-b-0" id="interndom">Web Development</h4>
                       <!-- <h6 class="text-right"><i class="fa fa-cart-plus f-left"></i><span>46%</span></h6> -->
                       <!-- <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
@@ -305,10 +305,11 @@ let logindash = document.getElementById('logindash');
 let Dashboard = document.getElementById('Dashboard');
 let dashsignout = document.getElementById('dashsignout');
 
+
+
 dashsignout.addEventListener('click',()=>{
   deleteCookie("id");
   localStorage.removeItem('interndata')
-
   checkveridata();
 
 })
@@ -340,20 +341,28 @@ function checkveridata(){
   
 
 function setdashdata(data){
-
-  let internuid = document.getElementById('internuid');
+  
+let internuid = document.getElementById('internuid');
   let internname = document.getElementById('internname');
   let internsdate = document.getElementById('internsdate');
   let internedate = document.getElementById('internedate');
   let interndom = document.getElementById('interndom')
   let domainpdf = document.getElementById('domainpdf');
 
+
   let progressbar = document.getElementById('progress-bar');
 
+  // let stdate = dategrammer(data.startingDate);
+  // let etdate = dategrammer(data.awardDate);
+
   internuid.innerHTML = data.uniqueId || "NA";
-  internname.innerHTML =data.studentName || "NA";
-  internsdate.innerHTML = data.startingDate || "NA";
-  internedate.innerHTML = data.awardDate|| "NA";
+  internname.innerHTML = data.studentName || "NA";
+
+  internsdate.innerHTML =  data.startingDate|| "NA";
+
+
+
+  internedate.innerHTML = data.awardDate || "NA";
   interndom.innerHTML = data.domain || "NA";
 
 
@@ -363,9 +372,11 @@ function setdashdata(data){
   const domainData = getTasksForDomain(data.domain);
   const tasks = domainData.tasks;
   domainpdf.setAttribute('href',domainData.link)
+  let taskbox = document.getElementById("taskbox");
+  taskbox.innerHTML = "";
   var i = 1;
   tasks.forEach(e => {
-    document.getElementById("taskbox").innerHTML +=`
+    taskbox.innerHTML +=`
   <div class="col-md-4 col-xl-4">
         <div class="card bg-c-grey order-card">
             <div class="card-block">
@@ -385,44 +396,69 @@ function setdashdata(data){
 
 }
 
+// function dategrammer(dateStr) {
+//   console.log(dateStr);
+//   // Check if the input string matches the MM/DD/YY format
+//   const simpleDatePattern = /^\d{2}\/\d{2}\/\d{2}$/;
+//   if (simpleDatePattern.test(dateStr)) {
+//     return dateStr;
+//   }
+//   const datePattern = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.\d{3}Z$/;
+//   const match = dateStr.match(datePattern);
+  
+//   if (!match) {
+//     throw new Error("Invalid date format");
+//   }
+
+//   // Extract the relevant parts of the date
+//   const year = match[1];
+//   const month = match[2];
+//   const day = match[3];
+
+//   // Format the date as MM/DD/YY
+//   const formattedDate = `${month}/${day}/${year.slice(-2)}`;
+//   return formattedDate;
+// }
+
+
 
 function getTasksForDomain(dom) {  
   let tasklist = {
   "web development": {
     "tasks": ["E-commerce", "News platform"],
-    "link": "web-development.html"
+    "link": "https://drive.google.com/file/d/1ArvreueL5eYfNfkNLRMmH-WPBINTWiYI/view?usp=drive_link"
   },
   "ui/ux": {
     "tasks": ["Textbook Hub", "Skill Share"],
-    "link": "ui-ux.html"
+    "link": "https://drive.google.com/file/d/1_2ZJFSLWAtyWZ1lcEQUM80wSGdsYu4xC/view?usp=drive_link"
   },
   "machine learning": {
     "tasks": ["Sentiment Analysis", "Credit Card Fraud"],
-    "link": "machine-learning.html"
+    "link": "https://drive.google.com/file/d/1k2VKTlmkjGGgonsHk3xRhmV_LU4V3mrW/view?usp=drive_link"
   },
   "c++ programming": {
     "tasks": ["Inventory Management", "Simple Social", "Number Guessing"],
-    "link": "c-plus-plus-programming.html"
+    "link": "https://drive.google.com/file/d/1FEAgufzt6oy2jbT0SI4FV_ugI3ZDB34x/view?usp=drive_link"
   },
   "python programming": {
     "tasks": ["Contact Book", "Personal Finance", "EXPENSE TRACKER"],
-    "link": "python-programming.html"
+    "link": "https://drive.google.com/file/d/1vQWdN9q4oFn7xgg5phiyKurFfLUTer2v/view?usp=drive_link"
   },
   "java programming": {
     "tasks": ["Simple Banking", "Library Management", "Simple Chat"],
-    "link": "java-programming.html"
+    "link": "https://drive.google.com/file/d/16KHaf8nQSEV3ziNQj5_fR1UWDtm2PTLI/view?usp=drive_link"
   },
   "artificial intelligence": {
     "tasks": ["Chatbot NLP", "Image Captioning"],
-    "link": "artificial-intelligence.html"
+    "link": "https://drive.google.com/file/d/1uIUkxWYqiSJc65FmoLn7NywNGi8YxKPK/view?usp=drive_link"
   },
   "data science": {
     "tasks": ["Webscrapping", "Text Detection"],
-    "link": "data-science.html"
+    "link": "https://drive.google.com/file/d/1Dyqv0fErGlADCM6JWh0m2Ny3EKOzWVZA/view?usp=drive_link"
   },
   "android development": {
     "tasks": ["Recipe Management", "News app"],
-    "link": "android-development.html"
+    "link": "https://drive.google.com/file/d/1Rmz__h5gmGtVwz05HGy8gKaCnaZlWMG1/view?usp=drive_link"
   }
 };
   dom = dom.toLowerCase();
@@ -450,6 +486,7 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
     fetch(url)
       .then(response => response.json())
       .then(data => {
+        console.log(data);
           setCookie("internuid",data.uniqueId,15);
           localStorage.setItem("interndata", JSON.stringify(data));
           checkveridata()
