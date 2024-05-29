@@ -443,7 +443,7 @@ let validerr = document.getElementById('validerr');
 document.getElementById('verificatonform').addEventListener('submit', (e) => {
   e.preventDefault();
   const verifidinput = document.getElementById('verifidinput').value;
-  
+  if(verifidinput.length >9){
     const url = `https://script.google.com/macros/s/AKfycbzOsNWHS7bSBQeyquP9pXD0vRO0LWJAn-ETpiMPWLZ4887TZPea3_V24I26-ejRjqcu/exec?id=${verifidinput}`;
     
     validerr.innerHTML = "Fetching...";
@@ -460,6 +460,11 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
        
         validerr.innerHTML = "Not Found. If you have completed the internship recently, please wait for 24hrs";
       });
+  }else{
+    validerr.innerHTML = "Id Must Be Greater Than Or Equal to 10 Charachter";
+  }
+  
+    
 });
 
 

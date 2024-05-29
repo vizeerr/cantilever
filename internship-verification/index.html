@@ -155,6 +155,8 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
   const verifidinput = document.getElementById('verifidinput').value;
   
   if (!verifdone) {
+    if(verifidinput.length >9){
+
     document.getElementById('valuetable').innerHTML = "<p>Fetching...</p>";
     const url = `https://script.google.com/macros/s/AKfycbzOsNWHS7bSBQeyquP9pXD0vRO0LWJAn-ETpiMPWLZ4887TZPea3_V24I26-ejRjqcu/exec?id=${verifidinput}`;
     verifdone = true; 
@@ -170,30 +172,21 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
             <td>${data.awardDate}</td>
             <td>${data.duration}</td>
           </tr>`;
-          setCookie("internuid",data.uniqueId,15);
           settimmer();
         // Move this line here
       })
       .catch(error => {
         document.getElementById('valuetable').innerHTML = "<p>Not Found. If you have completed the internship recently, please wait for 24hrs.</p>";
       });
+    }else{
+      document.getElementById('valuetable').innerHTML = "<p>Id Must Be Greater Than Or Equal to 10 Charachter</p>";
+    }
     
   } else {
     document.getElementById('valuetable').innerHTML = "<p>Please wait for 5s before revalidation.</p>";
   }
 });
 
-function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    console.log(name + "=" + (value || "") + expires + "; path=/");
-
-}
 
 
 </script>
