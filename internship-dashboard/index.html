@@ -487,7 +487,7 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
       .then(response => response.json())
       .then(data => {
         console.log(data);
-          setCookie("internuid",data.uniqueId,15);
+          setCookie("internuid",data.uniqueId,5);
           localStorage.setItem("interndata", JSON.stringify(data));
           checkveridata()
         
