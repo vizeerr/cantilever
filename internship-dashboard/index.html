@@ -181,7 +181,7 @@
                   <div class="card-block">
                       <h6 class="m-b-20">Certificate</h6>
                       <h4 class="text-right">Status</h4>
-                      <p class="m-b-0">Not Received</p>
+                      <p class="m-b-0" id="certifstat">Not Received</p>
                   </div>
               </div>
           </div>
@@ -304,12 +304,13 @@
 let logindash = document.getElementById('logindash');
 let Dashboard = document.getElementById('Dashboard');
 let dashsignout = document.getElementById('dashsignout');
-
+let validerr = document.getElementById('validerr');
 
 
 dashsignout.addEventListener('click',()=>{
   deleteCookie("id");
   localStorage.removeItem('interndata')
+  validerr.innerHTML = "";
   checkveridata();
 
 })
@@ -318,7 +319,7 @@ dashsignout.addEventListener('click',()=>{
 checkveridata()
 function checkveridata(){
   const x = getCookie("internuid");
-  console.log(x);
+  // console.log(x);
 
   if(!x){
     Dashboard.setAttribute("style", "display: none !important;");
@@ -348,6 +349,9 @@ let internuid = document.getElementById('internuid');
   let internedate = document.getElementById('internedate');
   let interndom = document.getElementById('interndom')
   let domainpdf = document.getElementById('domainpdf');
+  let certifstat = document.getElementById('certifstat');
+
+  certifstat.innerHTML = data.certificate || "Not Given"
 
 
   let progressbar = document.getElementById('progress-bar');
@@ -474,19 +478,20 @@ function getTasksForDomain(dom) {
 
 
 
-let validerr = document.getElementById('validerr');
+
 
 document.getElementById('verificatonform').addEventListener('submit', (e) => {
   e.preventDefault();
   const verifidinput = document.getElementById('verifidinput').value;
   if(verifidinput.length >9){
-    const url = `https://script.google.com/macros/s/AKfycbzOsNWHS7bSBQeyquP9pXD0vRO0LWJAn-ETpiMPWLZ4887TZPea3_V24I26-ejRjqcu/exec?id=${verifidinput}`;
+  
+    const url = `https://script.google.com/macros/s/AKfycbysTXqqYFUv7vAglV5VegNL2mnwcYCAHiSwAMJt8aHt_NZKEiyb3q7647D-Dt0kly8n/exec?id=${verifidinput}`;
     
     validerr.innerHTML = "Fetching...";
     fetch(url)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        
           setCookie("internuid",data.uniqueId,5);
           localStorage.setItem("interndata", JSON.stringify(data));
           checkveridata()
