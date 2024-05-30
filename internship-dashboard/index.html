@@ -330,6 +330,11 @@ function checkveridata(){
       logindash.style.display = "none";
       Dashboard.setAttribute("style", "display:flex !important;");
       const interndata = JSON.parse(interndataobj);
+      // if(interndata.version != "v1.1"){
+      if(interndata.version == null){
+        deleteCookie("internuid");
+        checkveridata();
+      }
       setdashdata(interndata)
       
     }else{
@@ -493,6 +498,7 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
       .then(data => {
         
           setCookie("internuid",data.uniqueId,5);
+          data.version = "v1.0";
           localStorage.setItem("interndata", JSON.stringify(data));
           checkveridata()
         
