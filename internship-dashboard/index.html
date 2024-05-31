@@ -330,8 +330,7 @@ function checkveridata(){
       logindash.style.display = "none";
       Dashboard.setAttribute("style", "display:flex !important;");
       const interndata = JSON.parse(interndataobj);
-      // if(interndata.version != "v1.1"){
-      if(interndata.version == null){
+      if(interndata.version != "v1.1" || interndata.version == null){
         deleteCookie("internuid");
         checkveridata();
       }
@@ -490,7 +489,7 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
   const verifidinput = document.getElementById('verifidinput').value;
   if(verifidinput.length >9){
   
-    const url = `https://script.google.com/macros/s/AKfycbyTKUEXnrSB0w3uwPbb4rt_JAgWwbg5ZSpxkwXPbtctdmiIVPU9UtbD6lYmwpJ1iri1/exec?id=${verifidinput}`;
+    const url = `https://script.google.com/macros/s/AKfycbyd_ytlVimANCWlAGFIBDyGguWcoSxQSTAHA3wMcRydPfqv28M9QSX3VFwQhOB4rFDn/exec?id=${verifidinput}`;
     
     validerr.innerHTML = "Fetching...";
     fetch(url)
@@ -498,7 +497,7 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
       .then(data => {
         
           setCookie("internuid",data.uniqueId,5);
-          data.version = "v1.0";
+          data.version = "v1.1";
           localStorage.setItem("interndata", JSON.stringify(data));
           checkveridata()
         
