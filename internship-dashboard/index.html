@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta property="og:title" content="CantiLever Software And Services Provider">
+    <meta property="og:title" content="CantiLever Software And Services Provider - Dashboard Login">
   <meta property="og:description" content="Cantilever helps you to seamlessly connect your data, teams, and customers on our platform that grows with your business.">
   
   <meta name="description" content="Cantilever helps you to seamlessly connect your data, teams, and customers on our platform that grows with your business.">
 
 
-  <title>CantiLever Careers Internship & Jobs Openings </title>
+  <title>CantiLever Careers Internship & Jobs Openings - Dashboard Login</title>
 
 
     <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
@@ -189,10 +189,11 @@
    </div>
 
    <hr/>
+   <div id="taskcontainer"> 
 
-   <h4 class="mt-5">Tasks</h4>
-   <div class="container">
-
+     <h4 class="mt-5">Tasks</h4>
+     <div class="container">
+       
     <div class="d-flex flex-wrap" id="taskbox">
       
     
@@ -203,7 +204,8 @@
         <img src="/assets/images/interntask.jpg" class="linkimg rounded-2 shadow-sm border" alt="cantilever internship dashboard">
       </a>
     </div>
-   </div>
+  </div>
+</div>
 
 
   </div>
@@ -347,16 +349,15 @@ function checkveridata(){
 
 function setdashdata(data){
   
-let internuid = document.getElementById('internuid');
+  let internuid = document.getElementById('internuid');
   let internname = document.getElementById('internname');
   let internsdate = document.getElementById('internsdate');
   let internedate = document.getElementById('internedate');
   let interndom = document.getElementById('interndom')
   let domainpdf = document.getElementById('domainpdf');
   let certifstat = document.getElementById('certifstat');
-
+  
   certifstat.innerHTML = data.certificate || "Not Given"
-
 
   let progressbar = document.getElementById('progress-bar');
 
@@ -372,33 +373,34 @@ let internuid = document.getElementById('internuid');
 
   internedate.innerHTML = data.awardDate || "NA";
   interndom.innerHTML = data.domain || "NA";
-
-
-
+  if(data.domain == "Campus Ambassador"){
+    document.getElementById('taskcontainer').style.display="none";
+  }else{
   // progressbar.style.width =  + "%";
 
-  const domainData = getTasksForDomain(data.domain);
-  const tasks = domainData.tasks;
-  domainpdf.setAttribute('href',domainData.link)
-  let taskbox = document.getElementById("taskbox");
-  taskbox.innerHTML = "";
-  var i = 1;
-  tasks.forEach(e => {
-    taskbox.innerHTML +=`
-  <div class="col-md-4 col-xl-4">
-        <div class="card bg-c-grey order-card">
-            <div class="card-block">
-                <h6 class="m-b-20">Task ${i}</h6>
-                <h3 class="m-b-0">${e}</h3>
-            </div>
-        </div>
-    </div>
-  `;
+    const domainData = getTasksForDomain(data.domain);
+    const tasks = domainData.tasks;
+    domainpdf.setAttribute('href',domainData.link)
+    let taskbox = document.getElementById("taskbox");
+    taskbox.innerHTML = "";
+    var i = 1;
+    tasks.forEach(e => {
+      taskbox.innerHTML +=`
+    <div class="col-md-4 col-xl-4">
+          <div class="card bg-c-grey order-card">
+              <div class="card-block">
+                  <h6 class="m-b-20">Task ${i}</h6>
+                  <h3 class="m-b-0">${e}</h3>
+              </div>
+          </div>
+      </div>
+    `;
 
-  i++;
+    i++;
 
-  });
-  
+    });
+    
+  }
   
 
 
