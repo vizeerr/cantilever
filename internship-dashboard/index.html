@@ -361,9 +361,6 @@ function setdashdata(data){
 
   let progressbar = document.getElementById('progress-bar');
 
-  // let stdate = dategrammer(data.startingDate);
-  // let etdate = dategrammer(data.awardDate);
-
   internuid.innerHTML = data.uniqueId || "NA";
   internname.innerHTML = data.studentName || "NA";
 
@@ -402,33 +399,7 @@ function setdashdata(data){
     
   }
   
-
-
 }
-
-// function dategrammer(dateStr) {
-//   console.log(dateStr);
-//   // Check if the input string matches the MM/DD/YY format
-//   const simpleDatePattern = /^\d{2}\/\d{2}\/\d{2}$/;
-//   if (simpleDatePattern.test(dateStr)) {
-//     return dateStr;
-//   }
-//   const datePattern = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.\d{3}Z$/;
-//   const match = dateStr.match(datePattern);
-  
-//   if (!match) {
-//     throw new Error("Invalid date format");
-//   }
-
-//   // Extract the relevant parts of the date
-//   const year = match[1];
-//   const month = match[2];
-//   const day = match[3];
-
-//   // Format the date as MM/DD/YY
-//   const formattedDate = `${month}/${day}/${year.slice(-2)}`;
-//   return formattedDate;
-// }
 
 
 
