@@ -188,8 +188,14 @@
     </div>
    </div>
 
-   <hr/>
+  
+
+   <div class="tasknt" id="tasknt">
+    <hr/>
+    <h4 class="text-danger">Note: Please check regularly here for the task details that will be assigned to you</h4>
+   </div>
    <div id="taskcontainer"> 
+    <hr/>
 
      <h4 class="mt-5">Tasks</h4>
      <div class="container">
@@ -198,14 +204,41 @@
       
     
     </div>
-    <div class="ms-4">
+    <div class="">
       <h5 class="my-4">Task Details (pdf)</h5>
       <a href="" id ="domainpdf">
         <img src="/assets/images/interntask.jpg" class="linkimg rounded-2 shadow-sm border" alt="cantilever internship dashboard">
       </a>
     </div>
+    <div class="mt-4">
+      <h5 class="my-4">Task Guidelines</h5>
+      <ol class="text-info-emphasis">
+        <li>UPDATE YOUR LINKEDIN
+
+          PROFILE</li>
+          <li>CLICK ON ABOVE PDF TO VIEW TASK DETAILS</li>
+        <li>COMPLETE THE TASKS GIVEN
+
+          TO YOU</li>
+          <li>
+            MAINTAIN A SEPRATE GITHUB REPO
+
+NAMED WITH “CANTILEVER”
+          </li>
+          <li>SHARE THE LINK OF YOUR REPO IN
+
+TASK SUBMISSION FORM</li>
+<li>A TASK SUBMISSION FORM WILL BE SHARED TO YOU ON EMAIL AND HERE</li>
+      </ol>
+
+      <p class="text-danger">NOTE: We track all activities, including logins, task submissions, and task quality, among others. </p>
+    </div>
   </div>
 </div>
+
+<hr/>
+
+<h6>For any kind of help you can mail us at : <a href="mailto:cantileverinfo@gmail.com"> cantileverinfo@gmail.com </a> or <a href="/contact-us-software-solution/"> Contact Us Here </a></h6>
 
 
   </div>
@@ -366,6 +399,10 @@ function setdashdata(data){
 
   internsdate.innerHTML =  data.startingDate|| "NA";
 
+  let today = new Date();
+
+  let startingDate = parseDate(data.startingDate);
+
 
 
   internedate.innerHTML = data.awardDate || "NA";
@@ -374,6 +411,10 @@ function setdashdata(data){
     document.getElementById('taskcontainer').style.display="none";
   }else{
   // progressbar.style.width =  + "%";
+  if(startingDate < today){
+    document.getElementById('tasknt').style.display="block";
+    document.getElementById('taskcontainer').style.display="none";
+  }else{
 
     const domainData = getTasksForDomain(data.domain);
     const tasks = domainData.tasks;
@@ -396,11 +437,20 @@ function setdashdata(data){
     i++;
 
     });
-    
+  }
   }
   
 }
 
+
+function parseDate(dateString) {
+    let parts = dateString.split('/');
+    let day = parseInt(parts[0], 10);
+    let month = parseInt(parts[1], 10) - 1; // Months are zero-indexed in JavaScript Date
+    let year = parseInt(parts[2], 10) + 2000; // Assuming 21st century for 2-digit years
+
+    return new Date(year, month, day);
+}
 
 
 function getTasksForDomain(dom) {  

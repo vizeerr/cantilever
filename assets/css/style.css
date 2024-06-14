@@ -174,11 +174,22 @@ footer .list-unstyled li{
 }
 .linkimg{
     width: 400px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.linkimg:hover{
+    scale: 1.1;
+    filter: grayscale(1);
 }
 
 .dasboard .col-md-4 {
     width: 30%;
     padding: 0;
+}
+
+.tasknt{
+    display: none;
 }
 
 @media only screen and (max-width: 1220px) {
