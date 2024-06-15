@@ -365,7 +365,7 @@ function checkveridata(){
       logindash.style.display = "none";
       Dashboard.setAttribute("style", "display:flex !important;");
       const interndata = JSON.parse(interndataobj);
-      if(interndata.version != "v1.1" || interndata.version == null){
+      if(interndata.version != "v1.2" || interndata.version == null){
         deleteCookie("internuid");
         checkveridata();
       }
@@ -407,15 +407,12 @@ function setdashdata(data){
 
   internedate.innerHTML = data.awardDate || "NA";
   interndom.innerHTML = data.domain || "NA";
+
   if(data.domain == "Campus Ambassador"){
     document.getElementById('taskcontainer').style.display="none";
   }else{
   // progressbar.style.width =  + "%";
-  if(startingDate < today){
-    document.getElementById('tasknt').style.display="block";
-    document.getElementById('taskcontainer').style.display="none";
-  }else{
-
+  if(today > startingDate ){
     const domainData = getTasksForDomain(data.domain);
     const tasks = domainData.tasks;
     domainpdf.setAttribute('href',domainData.link)
@@ -435,8 +432,12 @@ function setdashdata(data){
     `;
 
     i++;
-
-    });
+  });
+  // if(startingDate < today){
+    
+  }else{
+    document.getElementById('tasknt').style.display="block";
+    document.getElementById('taskcontainer').style.display="none";
   }
   }
   
@@ -519,8 +520,8 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
       .then(response => response.json())
       .then(data => {
         
-          setCookie("internuid",data.uniqueId,5);
-          data.version = "v1.1";
+          setCookie("internuid",data.uniqueId,3);
+          data.version = "v1.2";
           localStorage.setItem("interndata", JSON.stringify(data));
           checkveridata()
         
