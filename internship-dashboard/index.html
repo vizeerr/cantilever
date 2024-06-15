@@ -413,6 +413,7 @@ function setdashdata(data){
   }else{
   // progressbar.style.width =  + "%";
   if(today > startingDate ){
+    log
     const domainData = getTasksForDomain(data.domain);
     const tasks = domainData.tasks;
     domainpdf.setAttribute('href',domainData.link)
@@ -456,7 +457,7 @@ function parseDate(dateString) {
 
 function getTasksForDomain(dom) {  
   let tasklist = {
-  "web devlopment": {
+  "web development": {
     "tasks": ["E-commerce", "News platform"],
     "link": "https://drive.google.com/file/d/1ArvreueL5eYfNfkNLRMmH-WPBINTWiYI/view?usp=drive_link"
   },
