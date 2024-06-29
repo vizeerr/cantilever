@@ -192,6 +192,9 @@ footer .list-unstyled li{
     display: none;
 }
 
+#tasklink{
+    display: none;
+}
 @media only screen and (max-width: 1220px) {
     
     .dasboard .col-md-4 {
