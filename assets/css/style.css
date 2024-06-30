@@ -167,7 +167,7 @@ footer .list-unstyled li{
 
 .navbg{
     width: 280px;
-    height:83vh; position:sticky; top:8.3em;
+    height:90vh; position:sticky; top:4.6em;
 }
 .dasboard .dropdown-toggle::after{
     transform: rotate(180deg);
@@ -192,7 +192,10 @@ footer .list-unstyled li{
     display: none;
 }
 
-#tasklink{
+#tasklinkbtn{
+    display: none;
+}
+.notif{
     display: none;
 }
 @media only screen and (max-width: 1220px) {

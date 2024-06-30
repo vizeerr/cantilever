@@ -113,12 +113,17 @@
 </div>
 
  <div id="Dashboard" class="d-flex gap-5 bg-light dasboard">
-  <div class="sidenav ">
-    <div class="navbg d-flex flex-column flex-shrink-0 p-3 bg-white shadow-sm" >
-      <ul class="nav nav-pills flex-column mb-auto">
+  <div class="sidenav bg-white shadow-sm">
+    <div class="navbg d-flex flex-column flex-shrink-0 p-3 bg-white " >
+      <ul class="nav nav-pills flex-column mb-auto row-gap-3">
         <li class="nav-item">
           <a href="#" class="nav-link active text-center" id="internuid" aria-current="page">
             
+          </a>
+        </li>
+        <li class="nav-item" id="tasklinkbtn" >
+          <a href="https://forms.gle/idT9Hm6oqSj4ecrv9" class="nav-link active text-center" style="background-color: rgb(255, 74, 74);" aria-current="page">
+            Submit Task
           </a>
         </li>
         
@@ -199,7 +204,14 @@
 
      <h4 class="mt-5">Tasks</h4>
 
-     <p class="text-danger fs-6" id="tasklink">Note: Submit Your Task Before 1st July To Recieve Certificate And For Completion Of Your Internship  <a href="https://forms.gle/idT9Hm6oqSj4ecrv9"> Task Submission Link </a> </p>
+     <div class="p-3 bg-info-subtle my-4">
+       
+      <p class="text-black fs-6 m-0 ">Note: The task PDF has minor updates. If you've submitted or completed it, no changes are needed; otherwise, please review.</p>
+      </div>
+      <div class="p-3 my-4 notif" id="tasklink" style="background-color: rgb(255, 74, 74);">
+        <p class="text-white fs-6 m-0" >Note: Submit Your Task Before 3rd July To Recieve Certificate And For Completion Of Your Internship  <a class="text-white" href="https://forms.gle/idT9Hm6oqSj4ecrv9"> Task Submission Link </a> </p>  
+      </div>
+     
      <div class="container">
     <div class="d-flex flex-wrap" id="taskbox">
     
@@ -335,8 +347,6 @@ TASK SUBMISSION FORM</li>
 
 
 
-
-
 let logindash = document.getElementById('logindash');
 let Dashboard = document.getElementById('Dashboard');
 let dashsignout = document.getElementById('dashsignout');
@@ -355,8 +365,6 @@ dashsignout.addEventListener('click',()=>{
 checkveridata()
 function checkveridata(){
   const x = getCookie("internuid");
-  // console.log(x);
-
   if(!x){
     Dashboard.setAttribute("style", "display: none !important;");
     logindash.style.display = "block";
@@ -366,7 +374,7 @@ function checkveridata(){
       logindash.style.display = "none";
       Dashboard.setAttribute("style", "display:flex !important;");
       const interndata = JSON.parse(interndataobj);
-      if(interndata.version != "v1.4" || interndata.version == null){
+      if(interndata.version != "v1.5" || interndata.version == null){
         deleteCookie("internuid");
         checkveridata();
       }
@@ -437,10 +445,10 @@ function setdashdata(data){
 
       i++;
     });
-  // if(startingDate < today){
  
-  if(startingDate.getTime() === checkDate.getTime()){
+  if(startingDate.getTime() == checkDate.getTime() && data.uniqueId !="ID:45IU5D6J7B"){
     document.getElementById('tasklink').style.display="block";
+    document.getElementById('tasklinkbtn').style.display="block";
   }
     
   }else{
@@ -466,39 +474,39 @@ function getTasksForDomain(dom) {
   let tasklist = {
   "web development": {
     "tasks": ["E-commerce", "News platform"],
-    "link": "https://drive.google.com/file/d/1ArvreueL5eYfNfkNLRMmH-WPBINTWiYI/view?usp=drive_link"
+    "link": "https://drive.google.com/file/d/1Z7QgDllEd2Ao4MQGipdhIRBI55U0AQcL/view?usp=sharing"
   },
   "ui/ux": {
     "tasks": ["Textbook Hub", "Skill Share"],
-    "link": "https://drive.google.com/file/d/1_2ZJFSLWAtyWZ1lcEQUM80wSGdsYu4xC/view?usp=drive_link"
+    "link": "https://drive.google.com/file/d/1w_VTM0gSGwVG6Ogf0-dF1iFw8XEgHK2z/view?usp=sharing"
   },
   "machine learning": {
     "tasks": ["Sentiment Analysis", "Credit Card Fraud"],
-    "link": "https://drive.google.com/file/d/1k2VKTlmkjGGgonsHk3xRhmV_LU4V3mrW/view?usp=drive_link"
+    "link": "https://drive.google.com/file/d/17gbZCJXYRGiQLmtOh6t43hfwyLEokOW0/view?usp=sharing"
   },
   "c++ programming": {
     "tasks": ["Inventory Management", "Simple Social", "Number Guessing"],
-    "link": "https://drive.google.com/file/d/1FEAgufzt6oy2jbT0SI4FV_ugI3ZDB34x/view?usp=drive_link"
+    "link": "https://drive.google.com/file/d/1VOi52ZyTnK2Muoh90kudrhSOH_6WGR-y/view?usp=sharing"
   },
   "python programming": {
     "tasks": ["Contact Book", "Personal Finance", "EXPENSE TRACKER"],
-    "link": "https://drive.google.com/file/d/1vQWdN9q4oFn7xgg5phiyKurFfLUTer2v/view?usp=drive_link"
+    "link": "https://drive.google.com/file/d/1XIVQhuZvA5oLcXiyrL1WRsPbXsN1HSZ6/view?usp=sharing"
   },
   "java programming": {
     "tasks": ["Simple Banking", "Library Management", "Simple Chat"],
-    "link": "https://drive.google.com/file/d/16KHaf8nQSEV3ziNQj5_fR1UWDtm2PTLI/view?usp=drive_link"
+    "link": "https://drive.google.com/file/d/14xCTHpQM7pob0tBzHSFLodTbCtwFEbyb/view?usp=drive_link"
   },
   "artificial intelligence": {
     "tasks": ["Chatbot NLP", "Image Captioning"],
-    "link": "https://drive.google.com/file/d/1uIUkxWYqiSJc65FmoLn7NywNGi8YxKPK/view?usp=drive_link"
+    "link": "https://drive.google.com/file/d/1Ux6irmU-gLRq7z2crFXdrkxAcxmHjwne/view?usp=sharing"
   },
   "data science": {
     "tasks": ["Webscrapping", "Text Detection"],
-    "link": "https://drive.google.com/file/d/1Dyqv0fErGlADCM6JWh0m2Ny3EKOzWVZA/view?usp=drive_link"
+    "link": "https://drive.google.com/file/d/1_V6oeTmmobXnhBwb2cv9NnD9esUqqBvw/view?usp=sharing"
   },
   "android development": {
     "tasks": ["Recipe Management", "News app"],
-    "link": "https://drive.google.com/file/d/1Rmz__h5gmGtVwz05HGy8gKaCnaZlWMG1/view?usp=drive_link"
+    "link": "https://drive.google.com/file/d/1lDfgU9sJT9I_asbGDzhMzXRscrH4Wz1O/view?usp=sharing"
   }
 };
   dom = dom.toLowerCase();
@@ -529,7 +537,7 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
       .then(data => {
         
           setCookie("internuid",data.uniqueId,3);
-          data.version = "v1.4";
+          data.version = "v1.5";
           localStorage.setItem("interndata", JSON.stringify(data));
           checkveridata()
         
