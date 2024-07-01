@@ -126,6 +126,11 @@
             Submit Task
           </a>
         </li>
+        <li class="nav-item" >
+          <a href="https://forms.gle/idT9Hm6oqSj4ecrv9" id="deadline" class="nav-link active text-center" style="background-color: rgb(255, 157, 0);" aria-current="page">
+            
+          </a>
+        </li>
         
       </ul>
       <hr>
@@ -240,7 +245,7 @@ NAMED WITH “CANTILEVER”
           <li>SHARE THE LINK OF YOUR REPO IN
 
 TASK SUBMISSION FORM</li>
-<li>A TASK SUBMISSION FORM WILL BE SHARED TO YOU ON EMAIL AND HERE</li>
+<li>A TASK SUBMISSION FORM WILL BE SHARED TO YOU ON EMAIL AND HERE BEFORE THE DEADLINE</li>
       </ol>
 
       <p class="text-danger">NOTE: We track all activities, including logins, task submissions, and task quality, among others. </p>
@@ -398,6 +403,7 @@ function setdashdata(data){
   let interndom = document.getElementById('interndom')
   let domainpdf = document.getElementById('domainpdf');
   let certifstat = document.getElementById('certifstat');
+  let deadline = document.getElementById('deadline');
   
   certifstat.innerHTML = data.certificate || "Not Given"
 
@@ -417,6 +423,8 @@ function setdashdata(data){
 
 
   internedate.innerHTML = data.awardDate || "NA";
+  deadline.innerHTML = "Tasks Deadline: " + data.awardDate || "NA";
+  
   interndom.innerHTML = data.domain || "NA";
 
   if(data.domain == "Campus Ambassador"){
