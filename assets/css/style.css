@@ -110,16 +110,9 @@ footer .list-unstyled li{
 }
 
 .dasboard .bg-c-purple{
-    background: linear-gradient(45deg, #f98dff, #b803e6);
+    background: linear-gradient(45deg, #d767d8, #ff5bbf);
 }
 
-.dasboard .bg-c-lgreen{
-    background: linear-gradient(45deg, #85ff6f, #13e800);
-}
-
-.dasboard .bg-c-red {
-    background: linear-gradient(45deg, #ff6a6a, #ff002b);
-}
 
 .dasboard .bg-c-grey {
     background: linear-gradient(45deg, #8f8f8f, #3a2f2f);
@@ -182,10 +175,15 @@ footer .list-unstyled li{
     scale: 1.1;
     filter: grayscale(1);
 }
-
+#deadline{
+    display: none;
+}
 .dasboard .col-md-4 {
     width: 30%;
     padding: 0;
+}
+#awards{
+    display: none;
 }
 
 .tasknt{
