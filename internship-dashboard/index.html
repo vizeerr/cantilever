@@ -449,7 +449,7 @@ function setdashdata(data){
   let checkDate = parseDate("01/06/24");
   let totalDuration = Math.floor((endDate - startingDate) / (1000 * 60 * 60 * 24));
   let elapsedDuration = Math.floor((today - startingDate) / (1000 * 60 * 60 * 24));
-  let progressPercentage = Math.min((elapsedDuration / totalDuration) * 100, 100);
+  let progressPercentage = Math.floor(Math.min((elapsedDuration / totalDuration) * 100, 100));
 
   progressbar.style.width = progressPercentage + '%';
   progressbar.innerHTML = progressPercentage + '%';;
