@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,10 +37,6 @@
     <script src="/assets/js/component.js"></script>
 
     <nav class="navbar navbar-expand-lg shadow-sm position-sticky d-flex flex-column  z-3  bg-white  top-0 w-100 ">
-      <!-- <div class="d-flex gap-3 p-3 border-bottom w-100 justify-content-center mb-3"> 
-        <p class="m-0">Hurray ! We Are Hiring Interns</p>
-        <a href="/careers-internship/">Apply Now</a>
-      </div> -->
     
         <div class="container-fluid">
           <a class="navbar-brand fw-semibold d-flex gap-2 ms-2 align-items-center" href="/"><img src="/assets/images/logo.png" width="30" alt="cantilever logo software services"> <p class="fs-5 m-0 mt-1 ft-Marcel" > Canti<span style="color:#7559ff">Lever</span></p> </a>
@@ -76,19 +72,8 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="/careers-internship/">Internship Domain</a></li>
                     <li><a class="dropdown-item" href="/internship-dashboard/">Internship Login</a></li>
-                    <!-- <li><a class="dropdown-item" href="/internship-verification/">Internship Verification</a></li> -->
-                    
                 </ul>
-              </li>
-    
-              <!-- <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/careers-internship/">Internship</a>
-              </li> -->
-    
-              
-              
-              
-              
+              </li>            
             </ul>
             <a href="/contact-us-software-solution/"><button class="btn btn-primary btnnav ">Contact Us</button></a>
     
@@ -122,7 +107,7 @@
           </a>
         </li>
         <li class="nav-item" id="tasklinkbtn" >
-          <a href="https://forms.gle/idT9Hm6oqSj4ecrv9" class="nav-link active text-center" style="background-color: rgb(255, 74, 74);" aria-current="page">
+          <a href="https://forms.gle/adz4YS2CocxAw7bb7" class="nav-link active text-center" style="background-color: rgb(255, 74, 74);" aria-current="page">
             Submit Task
           </a>
         </li>
@@ -222,7 +207,7 @@
 
       
       <div class="p-3 my-4 notif" id="tasklink" style="background-color: rgb(255, 74, 74);">
-        <p class="text-white fs-6 m-0" >Note: Submit Your Task Before 3rd July To Recieve Certificate And For Completion Of Your Internship  <a class="text-white" href="https://forms.gle/idT9Hm6oqSj4ecrv9"> Task Submission Link </a> </p>  
+        <p class="text-white fs-6 m-0" >Note: Submit Your Task Before 15th July To Recieve Certificate And For Completion Of Your Internship  <a class="text-white" href="https://forms.gle/adz4YS2CocxAw7bb7"> Task Submission Link </a> </p>  
       </div>
       <div class="p-3 bg-info-subtle my-4"> 
         <p class="text-black fs-6 m-0 ">Note: Please  Complete the assigned tasks before the deadline. Link will be share to you before the deadline.</p>
@@ -283,9 +268,10 @@ TASK SUBMISSION FORM</li>
 
   </div>
 
+
 <hr/>
 
-<h6>For any kind of help you can mail us at : <a href="mailto:cantileverinfo@gmail.com"> cantileverinfo@gmail.com </a> or <a href="/contact-us-software-solution/"> Contact Us Here </a></h6>
+<h6 class="">For any kind of help you can mail us at : <a href="mailto:cantileverinfo@gmail.com"> cantileverinfo@gmail.com </a> or <a href="/contact-us-software-solution/"> Contact Us Here </a></h6>
 
 
   </div>
@@ -446,7 +432,7 @@ function setdashdata(data){
   interndom.innerHTML = data.domain || "NA";
 
   let startingDate = parseDate(data.startingDate);
-  let checkDate = parseDate("01/06/24");
+  let checkDate = parseDate("15/06/24");
   let totalDuration = Math.floor((endDate - startingDate) / (1000 * 60 * 60 * 24));
   let elapsedDuration = Math.floor((today - startingDate) / (1000 * 60 * 60 * 24));
   let progressPercentage = Math.floor(Math.min((elapsedDuration / totalDuration) * 100, 100));
@@ -478,9 +464,9 @@ function setdashdata(data){
     progressbar.style.width="100%";
     progressbar.innerHTML="0%";
     tasklink.style.display="block"
-    tasklink.querySelector("p").innerHTML="WTD: You can get certificate if you submit the project <a href='' style='color:#ffffff;'> Submit Now</a> and inform us <a style='color:#ffffff;' href='mailto:cantileverinfo@gmail.com'> cantileverinfo@gmail.com </a> "
+    document.getElementById('tasklinkbtn').style.display="block";
+    tasklink.querySelector("p").innerHTML="WTD: You can get certificate if you submit the project <a href='https://forms.gle/adz4YS2CocxAw7bb7' style='color:#ffffff;'> Submit Now</a> and inform us <a style='color:#ffffff;' href='mailto:cantileverinfo@gmail.com'> cantileverinfo@gmail.com </a> "
     taskshow(data,domainpdf,startingDate,checkDate);
-
   }
   
 }
@@ -509,7 +495,7 @@ function taskshow(data,domainpdf,startingDate,checkDate){
         });
         deadline.display="block"
   
-        if(startingDate.getTime() == checkDate.getTime() && data.uniqueId !="ID:45IU5D6J7B"){
+        if(startingDate.getTime() == checkDate.getTime()){
           document.getElementById('tasklink').style.display="block";
           document.getElementById('tasklinkbtn').style.display="block";
         }
