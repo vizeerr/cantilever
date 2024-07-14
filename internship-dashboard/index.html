@@ -205,11 +205,13 @@
 
      <h4 class="mt-5">Tasks</h4>
 
-      
+      <div class="p-3 my-4 notif" id="dateended" style="background-color: rgb(208, 37, 255);">
+        <p class="text-white fs-6 m-0" >Note: If You have submitted the tasks please wait for 3 days for verification after the it you will recieve all the perks through mail. </p>  
+      </div> 
       <div class="p-3 my-4 notif" id="tasklink" style="background-color: rgb(255, 74, 74);">
         <p class="text-white fs-6 m-0" >Note: Submit Your Task Before 15th July To Recieve Certificate And For Completion Of Your Internship  <a class="text-white" href="https://forms.gle/adz4YS2CocxAw7bb7"> Task Submission Link </a> </p>  
       </div>
-      <div class="p-3 bg-info-subtle my-4"> 
+      <div class="p-3 bg-info-subtle my-4" id="assignedtask"> 
         <p class="text-black fs-6 m-0 ">Note: Please  Complete the assigned tasks before the deadline. Link will be share to you before the deadline.</p>
       </div>
      
@@ -394,7 +396,7 @@ function checkveridata(){
       logindash.style.display = "none";
       Dashboard.setAttribute("style", "display:flex !important;");
       const interndata = JSON.parse(interndataobj);
-      if(interndata.version != "v1.9" || interndata.version == null){
+      if(interndata.version != "v2.0" || interndata.version == null){
         deleteCookie("internuid");
         checkveridata();
       }
@@ -445,7 +447,9 @@ function setdashdata(data){
     if(data.domain == "Campus Ambassador"){
       document.getElementById('taskcontainer').style.display="none";
     }else{
+      console.log("out");
       if(today > startingDate){
+        console.log("in");
         taskshow(data,domainpdf,startingDate,checkDate);
         deadline.style.display="block";
       }else{
@@ -464,8 +468,10 @@ function setdashdata(data){
     progressbar.style.width="100%";
     progressbar.innerHTML="0%";
     tasklink.style.display="block"
+    document.getElementById('dateended').style.display="block";
     document.getElementById('tasklinkbtn').style.display="block";
-    tasklink.querySelector("p").innerHTML="WTD: You can get certificate if you submit the project <a href='https://forms.gle/adz4YS2CocxAw7bb7' style='color:#ffffff;'> Submit Now</a> and inform us <a style='color:#ffffff;' href='mailto:cantileverinfo@gmail.com'> cantileverinfo@gmail.com </a> "
+    document.getElementById('assignedtask').style.display = "none";
+    tasklink.querySelector("p").innerHTML="Note: You can get certificate if you submit the project <a href='https://forms.gle/adz4YS2CocxAw7bb7' style='color:#ffffff;'> Submit Now</a> and inform us <a style='color:#ffffff;' href='mailto:cantileverinfo@gmail.com'> cantileverinfo@gmail.com </a> "
     taskshow(data,domainpdf,startingDate,checkDate);
   }
   
@@ -573,7 +579,7 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
       .then(data => {
         
           setCookie("internuid",data.uniqueId,3);
-          data.version = "v1.9";
+          data.version = "v2.0";
           localStorage.setItem("interndata", JSON.stringify(data));
           checkveridata()
         
