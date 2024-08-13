@@ -434,7 +434,7 @@ function setdashdata(data){
   interndom.innerHTML = data.domain || "NA";
 
   let startingDate = parseDate(data.startingDate);
-  let checkDate = parseDate("01/07/24");
+  let checkDate = parseDate("15/07/24");
   let totalDuration = Math.floor((endDate - startingDate) / (1000 * 60 * 60 * 24));
   let elapsedDuration = Math.floor((today - startingDate) / (1000 * 60 * 60 * 24));
   let progressPercentage = Math.floor(Math.min((elapsedDuration / totalDuration) * 100, 100));
