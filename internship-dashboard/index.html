@@ -209,7 +209,7 @@
         <p class="text-white fs-6 m-0" >Note: If You have submitted the tasks please wait for 3 days for verification after it you will recieve all the perks through mail. </p>  
       </div> 
       <div class="p-3 my-4 notif" id="tasklink" style="background-color: rgb(255, 74, 74);">
-        <p class="text-white fs-6 m-0" >Note: Submit Your Task Before 1st Septeber To Recieve Certificate And For Completion Of Your Internship  <a class="text-white" href="https://forms.gle/adz4YS2CocxAw7bb7"> Task Submission Link </a> </p>  
+        <p class="text-white fs-6 m-0" >Note: Submit Your Task Before 20th Septeber To Recieve Certificate And For Completion Of Your Internship  <a class="text-white" href="https://forms.gle/adz4YS2CocxAw7bb7"> Task Submission Link </a> </p>  
       </div>
       <div class="p-3 bg-info-subtle my-4" id="assignedtask"> 
         <p class="text-black fs-6 m-0 ">Note: Please  Complete the assigned tasks before the deadline. Submission Link will be share to you before the deadline.</p>
@@ -396,7 +396,7 @@ function checkveridata(){
       logindash.style.display = "none";
       Dashboard.setAttribute("style", "display:flex !important;");
       const interndata = JSON.parse(interndataobj);
-      if(interndata.version != "v2.1" || interndata.version == null){
+      if(interndata.version != "v2.2" || interndata.version == null){
         deleteCookie("internuid");
         checkveridata();
       }
@@ -434,7 +434,7 @@ function setdashdata(data){
   interndom.innerHTML = data.domain || "NA";
 
   let startingDate = parseDate(data.startingDate);
-  let checkDate = parseDate("01/08/24");
+  let checkDate = parseDate("20/08/24");
   let totalDuration = Math.floor((endDate - startingDate) / (1000 * 60 * 60 * 24));
   let elapsedDuration = Math.floor((today - startingDate) / (1000 * 60 * 60 * 24));
   let progressPercentage = Math.floor(Math.min((elapsedDuration / totalDuration) * 100, 100));
@@ -579,7 +579,7 @@ document.getElementById('verificatonform').addEventListener('submit', (e) => {
       .then(data => {
         
           setCookie("internuid",data.uniqueId,3);
-          data.version = "v2.1";
+          data.version = "v2.2";
           localStorage.setItem("interndata", JSON.stringify(data));
           checkveridata()
         
