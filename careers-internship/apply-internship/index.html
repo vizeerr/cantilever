@@ -67,7 +67,6 @@
               </ul>
             </li>
   
-           
             <li class="nav-item">
               <a class="nav-link" aria-current="page" href="/software-solution/">Our Services</a>
             </li>
@@ -79,68 +78,86 @@
               <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/careers-internship/">Internship Domain</a></li>
                   <li><a class="dropdown-item" href="/internship-dashboard/">Internship Login</a></li>
-                  <!-- <li><a class="dropdown-item" href="/internship-verification/">Internship Verification</a></li> -->
-                  
               </ul>
             </li>
-  
-            <!-- <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/careers-internship/">Internship</a>
-            </li> -->
-  
-            
-            
-            
-            
+
           </ul>
           <a href="/contact-us-software-solution/"><button class="btn btn-primary btnnav ">Contact Us</button></a>
-  
         </div>
       </div>
   </nav>
 
+  <div class="container my-0 p-5">
+    <h1 class="display-6 text-center mb-5">Job Description</h1>
+    <div class="container border p-4">
+      <p class="">Cantilever is hiring for passionate individuals to join our dynamic team through Summer Internship or Experience Program Opportunity.</p>
+      <p class="fw-bold">Compensation and Benefits:</p>
+      <ul>
+        <li>
+          Location : Remote
+        </li>
+        <li>
+          Hands-On Experience: Dive into real-world projects.
+        </li>
+        <li>
+          Certification: A Certificate of Completion will be provided upon successfully finishing your internship, as a testament to your work and learning here at Cantilever.
+        </li>
+        <li>
+          LOR: An LOR will be provided if you perform well in your internship.
+        </li>
+        <li>
+          Offline Internship: There is an opportunity for selection in an offline internship with a fixed stipend and big client projects
+        </li>
+      </ul>
+    </div>
+    
+  </div>
 
    <div class="container my-0 p-5">
     <h1 class="display-6 text-center mb-5">Apply For Internship</h1>
     <div id="formMessage"></div>
-
+    
+    <p class="text-center ">Please fill all the required fields carefully, information provided will be used in offer letter and Completion Certificate.</p>
     <form id="internForm" class="border p-5">
       <div class="mb-4">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="email" name="email" required />
+        <label for="email" class="form-label">Email Address</label>
+        <input type="email" class="form-control text-lowercase" id="email" name="email" required placeholder="yourname@example.com"/>
       </div>
       <div class="mb-4">
         <label for="fullName" class="form-label">Full Name</label>
-        <input type="text" class="form-control" name="fullName" id="fullName" required />
+        <input type="text" class="form-control text-uppercase" name="fullName" id="fullName" required pattern="[A-Za-z ]+" placeholder="JOHN DOE"/>
       </div>
       <div class="mb-4">
         <label for="contactNumber" class="form-label">Contact Number</label>
-        <input type="tel" class="form-control" name="contactNumber" id="contactNumber" required />
+        <input type="tel" class="form-control" name="contactNumber" id="contactNumber" required  pattern="[0-9]{10}" placeholder="9876543210" />
       </div>
       <div class="mb-4">
         <label for="gender" class="form-label">Gender</label>
         <select class="form-select" name="gender" id="gender" required>
           <option value="" disabled selected>Select Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
         </select>
       </div>
       <div class="mb-4">
         <label for="internshipDomain" class="form-label">Internship Domain</label>
         <select class="form-select" name="internshipDomain" id="internshipDomain" required>
           <option value="" disabled selected>Select Internship Domain</option>
-          <option value="web development">Web Development</option>
-          <option value="android development">Android Development</option>
-          <option value="data science">Data Science</option>
+          <option value="Web Development">Web Development</option>
+          <option value="Android Development">Android Development</option>
+          <option value="Data Science">Data Science</option>
+          <option value="Java Programming">Java Programming</option>
+          <option value="UI/UX">UI/UX</option>
+          <option value="Artificial Intelligence">Artificial Intelligence</option>
+          <option value="Machine Learning">Machine Learning</option>
+          <option value="C++ Programming">C++ Programming</option>
+          <option value="Python Programming">Python Programming</option>
         </select>
       </div>
       <div class="mb-4">
         <label for="university" class="form-label">University / College</label>
-        <select class="form-select" name="university" id="university" required>
-          <option value="" disabled selected>Select University</option>
-          <option value="mait">Maharaja Agrasen Institute of Technology</option>
-        </select>
+        <input type="text" class="form-control text-uppercase" name="university" id="university" required pattern="[A-Za-z ]+" placeholder="College / University Full Name*"/>
       </div>
       <div class="mb-4">
         <label for="qualification" class="form-label">Highest Qualification</label>
@@ -151,19 +168,20 @@
         </select>
       </div>
       <div class="mb-4">
-        <label for="currentYear" class="form-label">Current Year</label>
+        <label for="currentYear" class="form-label">Current Qualification Year</label>
         <select class="form-select" name="currentYear" id="currentYear" required>
           <option value="" disabled selected>Select Year</option>
           <option value="1">1st Year</option>
           <option value="2">2nd Year</option>
           <option value="3">3rd Year</option>
+          <option value="4">4th Year</option>
+          <option value="5">5th Year</option>
         </select>
       </div>
       <div class="mb-4">
         <label for="joinDate" class="form-label">Earliest Join Date</label>
         <select class="form-select" name="joinDate" id="joinDate" required>
-          <option value="" disabled selected>Select Date</option>
-          <option value="2025-06-17">17st June</option>
+          <option value="" disabled selected>Select Earliest Join Date</option>
           <option value="2025-06-1">1st June</option>
           <option value="2025-06-15">15th June</option>
           <option value="2025-07-1">1st July</option>
@@ -173,12 +191,30 @@
         </select>
       </div>
       <div class="mb-4">
-        <label for="source" class="form-label">How did you hear about us?</label>
-        <input type="text" class="form-control" name="source" id="source"  />
+        <label for="duration" class="form-label">Duration</label>
+        <select class="form-select" name="duration" id="duration" required>
+          <option value="" disabled selected>Select Duration</option>
+          <option value="1 Month">1 Month</option>
+          <option value="2 Month">2 Month</option>
+          <option value="3 Month">3 Month</option>
+        </select>
       </div>
       <div class="mb-4">
-        <label for="additionalInfo" class="form-label">Additional Info / Portfolio</label>
-        <textarea class="form-control" name="additionalInfo" id="additionalInfo" rows="3"></textarea>
+        <label for="source" class="form-label">How did you hear about us?</label>
+        
+         <select class="form-select" name="source" id="source" required>
+          <option value="" disabled selected>Select Options</option>
+          <option value="Campus Placement Cell/Coordinators">Campus Placement Cell/Coordinators</option>
+          <option value="Website (Google Search)">Website (Google Search)</option>
+          <option value="Referral(Friends, Colleagues etc.)">Referral(Friends, Colleagues etc.)</option>
+          <option value="Linkeldln">Linkeldln</option>
+          <option value="Others">Others</option>
+        </select>
+
+      </div>
+      <div class="mb-4">
+        <label for="additionalInfo" class="form-label">Any additional relevant information / Links / Work Portfolio / Projects?</label>
+        <textarea class="form-control" name="additionalInfo" id="additionalInfo" rows="3" ></textarea>
       </div>
       <div class="mb-4 form-check">
         <input class="form-check-input" type="checkbox" name="terms" id="terms" required />
@@ -186,91 +222,111 @@
           I accept the terms and conditions.
         </label>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" id="submitBTN" class="btn btn-primary">Submit</button>
     </form>
    </div>
 
+   <!-- Model -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
 
-   <!-- Footer -->
-<footer class="bg-black d-flex text-white p-5 justify-content-around  ">
-  <div>
-    <h3>Career Opportunity</h3>
-    <hr>
-    <ul class="list-unstyled fs-6">
-      <li>Web Development </li>
-      <li>Android Development</li>
-      <li>Data Science </li>
-      <li>Java Programming</li>
-      <li>Ui/Ux</li>
-      <li>Artificial intelligence</li>
-      <li>Machine learning</li>
-      <li>C++ Programming</li>
-      <li>Python Programming</li>
-    </ul>
+
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="erroModel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="erroModel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
   </div>
-
-  <div>
-    <h3>Solution</h3>
-    <hr>
-    <ul class="list-unstyled fs-6">
-      <li>Team Management</li>
-      <li>Goal Management</li>
-      <li>Task Management</li>
-      <li>Work Management</li>
-      <li>Customer Management</li>
-      <li>Project Planing</li>
-    </ul>
-    
-  </div>
-
-  <div>
-    <h3>Usefull Links</h3>
-    <hr>
-    <ul class="list-unstyled fs-6">
-      <li>About us</li>
-      <li>Services</li>
-      <li>Career</li>
-      <li>Contact Us</li>
-    </ul>
 </div>
 
-  <div>
-    <h3>Resources</h3>
-    <hr>
-    <ul class="list-unstyled fs-6">
-      <li>Help Center</li>
-      <li>Support</li>
-      <li>forum</li>
-    </ul>
-    
-    <h3>Contact Us</h3>
-    <hr>
-    <ul class="list-unstyled fs-6">
-      <li>+91 9870574680 </li>
-      <li>cantileverinfo@gmail.com</li>
-    </ul>
-  </div>
+    <!-- Footer -->
+    <footer class="bg-black d-flex text-white p-5 justify-content-around  ">
+      <div>
+        <h3>Career Opportunity</h3>
+        <hr>
+        <ul class="list-unstyled fs-6">
+          <li>Web Development </li>
+          <li>Android Development</li>
+          <li>Data Science </li>
+          <li>Java Programming</li>
+          <li>Ui/Ux</li>
+          <li>Artificial intelligence</li>
+          <li>Machine learning</li>
+          <li>C++ Programming</li>
+          <li>Python Programming</li>
+        </ul>
+      </div>
 
-  <div>
+      <div>
+        <h3>Solution</h3>
+        <hr>
+        <ul class="list-unstyled fs-6">
+          <li>Team Management</li>
+          <li>Goal Management</li>
+          <li>Task Management</li>
+          <li>Work Management</li>
+          <li>Customer Management</li>
+          <li>Project Planing</li>
+        </ul>
+        
+      </div>
 
-    <div class="d-flex gap-2 align-items-center "> 
-      <img width="45" src="/assets/images/logo.png" alt="Cantilever logo">
-      <h1 class="mt-2">Canti<span style="color: #7559ff;">Lever</span></h1>
+      <div>
+        <h3>Usefull Links</h3>
+        <hr>
+        <ul class="list-unstyled fs-6">
+          <li>About us</li>
+          <li>Services</li>
+          <li>Career</li>
+          <li>Contact Us</li>
+        </ul>
     </div>
 
-    <div class="d-flex gap-3 mt-2">
-      <img src="/assets/images/whatsaap.png" width="35" alt="Cantilever whatsaap" >
-      <img src="/assets/images/telegrM.png"  width="35"  alt="Cantilever telegram" >
+      <div>
+        <h3>Resources</h3>
+        <hr>
+        <ul class="list-unstyled fs-6">
+          <li>Help Center</li>
+          <li>Support</li>
+          <li>forum</li>
+        </ul>
+        
+        <h3>Contact Us</h3>
+        <hr>
+        <ul class="list-unstyled fs-6">
+          <li>+91 9870574680 </li>
+          <li>cantileverinfo@gmail.com</li>
+        </ul>
+      </div>
+
+      <div>
+
+        <div class="d-flex gap-2 align-items-center "> 
+          <img width="45" src="/assets/images/logo.png" alt="Cantilever logo">
+          <h1 class="mt-2">Canti<span style="color: #7559ff;">Lever</span></h1>
+        </div>
+
+        <div class="d-flex gap-3 mt-2">
+          <img src="/assets/images/whatsaap.png" width="35" alt="Cantilever whatsaap" >
+          <img src="/assets/images/telegrM.png"  width="35"  alt="Cantilever telegram" >
+        </div>
+      
+      
+      </div>
+      </div>
+    </footer>
+
+    <hr class="m-0 bg-secondary">
+    <div class="bg-black text-center">
+      <p class="m-0 p-4 text-white  ">Copyright © 2006 - 2024 CantiLever</p>
     </div>
-  
-  
-  </div>
-  </div>
-</footer>
-<hr class="m-0 bg-secondary">
-<div class="bg-black text-center">
-  <p class="m-0 p-4 text-white  ">Copyright © 2006 - 2024 CantiLever</p>
-</div>
     
      <!-- Bootstrap -->
      <script src="form-handler.js"></script>
