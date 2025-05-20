@@ -30,7 +30,7 @@ document.getElementById("internForm").addEventListener("submit", async function 
 
     const result = await response.json();
     if (result.status === "success") {
-      showModal("Internship Application", "Application Submitted Successfully!!");
+      showModal("Internship Application", "Application Submitted Successfully!! Thankyou for applying at Cantilever. ");
 
       this.reset();
     } else {
