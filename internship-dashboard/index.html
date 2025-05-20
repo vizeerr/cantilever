@@ -82,551 +82,294 @@
     </nav>
 
     
-<div id="logindash" class="container  pt-5 mt-5" style="height: 60vh;">
-  <h1 class="display-6 text-center"> Dashborad Login</h1>
-  <p class="fs-6 wt-text text-center m-auto  my-4">Dashboard helps you to Manage tasks.
-  </p>
-  <form action="" id="verificatonform" class="mt-5 pt-4" >
-    <div class="input-group input-group-lg">
-      <span class="input-group-text" id="inputGroup-sizing-lg">ID:</span>
-      <input id="verifidinput" required type="text" class="form-control"  aria-label="Sizing example input" placeholder="Enter either certificate Id / Offerletter Id" aria-describedby="inputGroup-sizing-lg">
-      <button type="submit" class="btn btn-primary btnnav" style="width: 13vh">Login</button>
-     
-    </div>
-  </form>
-  <p id="validerr" class="text-secondary text-center mt-4"></p>
-</div>
-
- <div id="Dashboard" class="d-flex gap-5 bg-light dasboard">
-  <div class="sidenav bg-white shadow-sm">
-    <div class="navbg d-flex flex-column flex-shrink-0 p-3 bg-white " >
-      <ul class="nav nav-pills flex-column mb-auto row-gap-3">
-        <li class="nav-item">
-          <a href="#" class="nav-link active text-center" id="internuid" aria-current="page">
-            
-          </a>
-        </li>
-        <li class="nav-item" id="tasklinkbtn" >
-          <a href="https://forms.gle/adz4YS2CocxAw7bb7" class="nav-link active text-center" style="background-color: rgb(255, 74, 74);" aria-current="page">
-            Submit Task
-          </a>
-        </li>
-        <li class="nav-item" >
-          <a href="#" id="deadline" class="nav-link active text-center" style="background-color: rgb(255, 157, 0);" aria-current="page">
-            
-          </a>
-        </li>
+    <div id="logindash" class="container  pt-5 mt-5" style="height: 60vh;">
+      <h1 class="display-6 text-center">Internship Dashborad Login</h1>
+      <p class="fs-6 wt-text text-center m-auto  my-4">Dashboard helps you to manage tasks and internship status.
+      </p>
+      <form action="" id="dashboardForm" class="mt-5 pt-4" >
+        <div class="input-group input-group-lg">
+          <span class="input-group-text" id="inputGroup-sizing-lg">ID:</span>
+          <input id="verifidinput" required type="text" class="form-control"  aria-label="Sizing example input" placeholder="Type either your certificate Id / offerletter Id (eg. 14K4F5G4V4H)" aria-describedby="inputGroup-sizing-lg">
+          <button type="submit" class="btn btn-primary btnnav" style="width: 13vh">Login</button>
         
-      </ul>
-      <hr>
-      <div class="dropdown">
-        <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle show" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="true">
-          <img src="/assets/images/person.png" alt="" width="32" height="32" class="rounded-circle me-2">
-          <strong id="internname"></strong>
-        </a>
-        <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(0px, -34.4px);" data-popper-placement="top-start">
-          <li id="dashsignout" class="dropdown-item" >Sign out</li>
-        </ul>
-      </div>
-     
+        </div>
+      </form>
+      <p id="validerr" class="text-secondary text-center mt-4"></p>
     </div>
-  </div>
 
-  <div  class="container dascont bg-white p-5 me-5 my-5 rounded-3 shadow-sm">
-    <h4>Dashboard</h4>
-    <div class="container">
-      <div class="row">
-          <div class="col-md-4 col-xl-4">
-              <div class="card bg-c-blue order-card">
-                  <div class="card-block">
-                    <h6 class="m-b-20">Internship Domain</h6>
-                    <h4 class="m-b-0" id="interndom">Web Development</h4>
-                    <div class="progress mt-3 bg-dark rounded-2 shadow-sm" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-bar rounded-2 bg-info-subtle text-dark" id="progressbar">0%</div>
-                    </div>
+    <div id="Dashboard" class="d-flex gap-5 bg-light dasboard">
+      <div class="sidenav bg-white shadow-sm">
+        <div class="navbg d-flex flex-column flex-shrink-0 p-3 bg-white " >
+          <ul class="nav nav-pills flex-column mb-auto row-gap-3">
+            <li class="nav-item">
+              <a href="#" class="nav-link active text-center" id="internuid" aria-current="page">
+                
+              </a>
+            </li>
+            <li class="nav-item" id="tasklinkbtn" >
+              <a href="https://forms.gle/adz4YS2CocxAw7bb7" class="nav-link active text-center" style="background-color: rgb(255, 74, 74);" aria-current="page">
+                Submit Task
+              </a>
+            </li>
+            <li class="nav-item" >
+              <a href="" id="deadline" class="nav-link active text-center" style="background-color: rgb(255, 157, 0);" aria-current="page">
+                
+              </a>
+            </li>
+            
+          </ul>
+          <hr>
+          <div class="dropdown">
+            <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle show" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="true">
+              <img src="/assets/images/person.png" alt="" width="32" height="32" class="rounded-circle me-2">
+              <strong id="internname"></strong>
+            </a>
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate(0px, -34.4px);" data-popper-placement="top-start">
+              <li id="dashsignout" class="dropdown-item" >Sign out</li>
+            </ul>
+          </div>
+        
+        </div>
+      </div>
+
+      <div  class="container dascont bg-white p-5 me-5 my-5 rounded-3 shadow-sm">
+        <h4>Dashboard</h4>
+        <div class="container">
+          <div class="row">
+              <div class="col-md-4 col-xl-4">
+                  <div class="card bg-c-blue order-card">
+                      <div class="card-block">
+                        <h6 class="m-b-20">Internship Domain</h6>
+                        <h4 class="m-b-0" id="interndom">Web Development</h4>
+                        <div class="progress mt-3 bg-dark rounded-pill shadow-sm" role="progressbar" aria-label="Warning example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                          <div class="progress-bar rounded-pill bg-info-subtle text-dark" id="progressbar">0%</div>
+                        </div>
+                      </div>
+                      
                   </div>
                   
               </div>
               
-          </div>
-          
-          <div class="col-md-4 col-xl-4">
-              <div class="card bg-c-green order-card">
-                  <div class="card-block">
-                      <h6 class="m-b-20">Start Date</h6>
-                      <h3 class="m-b-0" id="internsdate">11/12/15</h3>
-                      <h6 class="text-right">Duration: 4 weeks</h6>
+              <div class="col-md-4 col-xl-4">
+                  <div class="card bg-c-green order-card">
+                      <div class="card-block">
+                          <h6 class="m-b-20">Start Date</h6>
+                          <h3 class="m-b-0" id="internsdate">11/12/15</h3>
+                          <h6 id="duration" class="text-right">Duration: 4 weeks</h6>
+                      </div>
                   </div>
               </div>
-          </div>
-          
-          <div class="col-md-4 col-xl-4">
-              <div class="card bg-c-yellow order-card">
-                  <div class="card-block">
-                      <h6 class="m-b-20">End Date</h6>
-                      <h3 class="text-right" id="internedate">13/14/15</h3>
-                      <h6 class="text-right">Duration: 4 weeks</h6>
+              
+              <div class="col-md-4 col-xl-4">
+                  <div class="card bg-c-yellow order-card">
+                      <div class="card-block">
+                          <h6 class="m-b-20">End Date</h6>
+                          <h3 class="text-right" id="internedate">13/14/15</h3>
+                          
+                      </div>
                   </div>
               </div>
-          </div>
-          
-          <div class="col-md-4 col-xl-4">
-              <div class="card bg-c-pink order-card">
-                  <div class="card-block">
-                      <h6 class="m-b-20">Certificate</h6>
-                      <h4 class="text-right">Status</h4>
-                      <p class="m-b-0" id="certifstat">Not Received</p>
+              
+              <div class="col-md-4 col-xl-4">
+                  <div class="card bg-c-pink order-card">
+                      <div class="card-block">
+                          <h6 class="m-b-20">Certificate</h6>
+                          <h4 class="text-right">Status</h4>
+                          <p class="m-b-0" id="certifstat">Not Received</p>
+                      </div>
                   </div>
               </div>
-          </div>
-        
-          <div class="col-md-4 col-xl-4">
-            <div class="card bg-c-purple order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Internship Completion</h6>
-                    <h4 class="text-right">Status</h4>
-                   
-                    <p class="m-b-0" id="compstat">In Progress</p>
-                </div>
-            </div>
-        </div>
-    </div>
-   </div>
-
-  
-
-   <div class="tasknt" id="tasknt">
-    <hr/>
-    <h4 class="text-danger">Note: Please Complete the task details assigned to you, which will commence after the start of your internship.</h4>
-   </div>
-
-   <div id="taskcontainer"> 
-    <hr/>
-
-     <h4 class="mt-5">Tasks</h4>
-
-      <div class="p-3 my-4 notif" id="dateended" style="background-color: rgb(208, 37, 255);">
-        <p class="text-white fs-6 m-0" >Note: If You have submitted the tasks please wait for 3 days for verification after it you will recieve all the perks through mail. </p>  
-      </div> 
-      <div class="p-3 my-4 notif" id="tasklink" style="background-color: rgb(255, 74, 74);">
-        <p class="text-white fs-6 m-0" >Note: Submit Your Task Before 30th September To Recieve Certificate And For Completion Of Your Internship  <a class="text-white" href="https://forms.gle/adz4YS2CocxAw7bb7"> Task Submission Link </a> </p>  
-      </div>
-      <div class="p-3 bg-info-subtle my-4" id="assignedtask"> 
-        <p class="text-black fs-6 m-0 ">Note: Please  Complete the assigned tasks before the deadline. Submission Link will be share to you before the deadline.</p>
-      </div>
-     
-     <div class="container">
-    <div class="d-flex flex-wrap" id="taskbox">
-    
-    </div>
-    <div class="">
-      <h5 class="my-4">Task Details (pdf)</h5>
-      <a href="" id ="domainpdf">
-        <img src="/assets/images/interntask.jpg" class="linkimg rounded-2 shadow-sm border" alt="cantilever internship dashboard">
-      </a>
-    </div>
-    <div class="mt-4">
-      <h5 class="my-4 text-primary">Tasks Guidelines</h5>
-      <ol class="text-info-emphasis">
-        <li>UPDATE YOUR LINKEDIN
-
-          PROFILE AND <a href="https://www.linkedin.com/company/cantilever-in/"> FOLLOW US</a></li>
-          <li>CLICK ON ABOVE PDF TO VIEW TASK DETAILS</li>
-        <li>COMPLETE THE TASKS GIVEN
-
-          TO YOU</li>
-          <li>
-            MAINTAIN A SEPRATE GITHUB REPO
-
-NAMED WITH “CANTILEVER”
-          </li>
-          <li>SHARE THE LINK OF YOUR REPO IN
-
-TASK SUBMISSION FORM</li>
-<li>A TASK SUBMISSION FORM WILL BE SHARED TO YOU ON EMAIL AND HERE BEFORE THE DEADLINE</li>
-      </ol>
-
-      <p class="text-danger">NOTE: We track all activities, including logins, task submissions, and task quality, among others. </p>
-    </div>
-  </div>
-  </div>
-
-  <div class="container mt-5" id="awards">
-  <hr>
-    <h2 class="mt-5 mb-4 text-primary text-center">🎊 Congratulations! For The Completion Of Your Internship 🎊</h2>
-    <p class="text-dark text-center fs-6 mb-4">Your dedication and hard work have truly paid off.<br> Wishing you continued success in your future endeavors</p>
-    <p class="text-danger text-center fs-6 mb-5">Check your mail for the Certificate and LOR</p>
-  
-    <!-- <hr>
-    <h4 class="mt-5">Certificate</h4>
-    <a href="" id ="domainpdf">
-      <img src="/assets/images/interntask.jpg" class="linkimg rounded-2 shadow-sm border" alt="cantilever internship dashboard">
-    </a>
-    <hr class="mt-5">
-    <h4 class="mt-5">Lor</h4>
-    <a href="" id ="domainpdf">
-      <img src="/assets/images/interntask.jpg" class="linkimg rounded-2 shadow-sm border" alt="cantilever internship dashboard">
-    </a> -->
-
-  </div>
-
-
-<hr/>
-
-<h6 class="">For any kind of help you can mail us at : <a href="mailto:cantileverinfo@gmail.com"> cantileverinfo@gmail.com </a> or <a href="/contact-us-software-solution/"> Contact Us Here </a></h6>
-
-
-  </div>
-  
-</div>
-
-<!-- Footer -->
-<footer class="bg-black d-flex text-white p-5 justify-content-around  ">
-  <div>
-    <h3>Career Opportunity</h3>
-    <hr>
-    <ul class="list-unstyled fs-6">
-      <li>Web Development </li>
-      <li>Android Development</li>
-      <li>Data Science </li>
-      <li>Java Programming</li>
-      <li>Ui/Ux</li>
-      <li>Artificial intelligence</li>
-      <li>Machine learning</li>
-      <li>C++ Programming</li>
-      <li>Python Programming</li>
-    </ul>
-  </div>
-
-  <div>
-    <h3>Solution</h3>
-    <hr>
-    <ul class="list-unstyled fs-6">
-      <li>Team Management</li>
-      <li>Goal Management</li>
-      <li>Task Management</li>
-      <li>Work Management</li>
-      <li>Customer Management</li>
-      <li>Project Planing</li>
-    </ul>
-    
-  </div>
-
-  <div>
-    <h3>Usefull Links</h3>
-    <hr>
-    <ul class="list-unstyled fs-6">
-      <li>About us</li>
-      <li>Services</li>
-      <li>Career</li>
-      <li>Contact Us</li>
-    </ul>
-</div>
-
-  <div>
-    <h3>Resources</h3>
-    <hr>
-    <ul class="list-unstyled fs-6">
-      <li>Help Center</li>
-      <li>Support</li>
-      <li>forum</li>
-    </ul>
-    
-    <h3>Contact Us</h3>
-    <hr>
-    <ul class="list-unstyled fs-6">
-      <li>+91 9870574680 </li>
-      <li>cantileverinfo@gmail.com</li>
-    </ul>
-  </div>
-
-  
-
-  <div>
-
-    <div class="d-flex gap-2 align-items-center "> 
-      <img width="45" src="/assets/images/logo.png" alt="Cantilever logo">
-      <h1 class="mt-2">Canti<span style="color: #7559ff;">Lever</span></h1>
-    </div>
-
-    <div class="d-flex gap-3 mt-2">
-      <img src="/assets/images/whatsaap.png" width="35" alt="Cantilever whatsaap" >
-      <img src="/assets/images/telegrM.png"  width="35"  alt="Cantilever telegram" >
-    </div>
-  
-  
-  </div>
-  </div>
-</footer>
-<hr class="m-0 bg-secondary">
-<div class="bg-black text-center">
-  <p class="m-0 p-4 text-white  ">Copyright © 2006 - 2024 CantiLever</p>
-</div>
-    
-
-
-<script>
-
-
-
-let logindash = document.getElementById('logindash');
-let Dashboard = document.getElementById('Dashboard');
-let dashsignout = document.getElementById('dashsignout');
-let validerr = document.getElementById('validerr');
-
-
-dashsignout.addEventListener('click',()=>{
-  deleteCookie("id");
-  localStorage.removeItem('interndata')
-  validerr.innerHTML = "";
-  checkveridata();
-
-})
-
-
-checkveridata()
-function checkveridata(){
-  const x = getCookie("internuid");
-  if(!x){
-    Dashboard.setAttribute("style", "display: none !important;");
-    logindash.style.display = "block";
-  }else{
-    const interndataobj = localStorage.getItem("interndata") || null;
-    if(interndataobj!= null){
-      logindash.style.display = "none";
-      Dashboard.setAttribute("style", "display:flex !important;");
-      const interndata = JSON.parse(interndataobj);
-      if(interndata.version != "v2.3" || interndata.version == null){
-        deleteCookie("internuid");
-        checkveridata();
-      }
-      setdashdata(interndata)
-      
-    }else{
-      deleteCookie("internuid");
-      checkveridata();
-    }
-  }
-  
-}
-  
-
-function setdashdata(data){
-
-  let internuid = document.getElementById('internuid');
-  let internname = document.getElementById('internname');
-  let internsdate = document.getElementById('internsdate');
-  let internedate = document.getElementById('internedate');
-  let interndom = document.getElementById('interndom')
-  let domainpdf = document.getElementById('domainpdf');
-  let certifstat = document.getElementById('certifstat');
-  let deadline = document.getElementById('deadline');
-  let progressbar = document.getElementById('progressbar');
-  let compstat = document.getElementById('compstat');
-  let today = new Date();
-  let endDate = parseDate(data.awardDate)
-
-  internuid.innerHTML = data.uniqueId || "NA";
-  internname.innerHTML = data.studentName || "NA";
-  internsdate.innerHTML =  data.startingDate|| "NA";
-  internedate.innerHTML = data.awardDate || "NA";
-  deadline.innerHTML = "Tasks Deadline: " + data.awardDate || "NA";
-  interndom.innerHTML = data.domain || "NA";
-
-  let startingDate = parseDate(data.startingDate);
-  let checkDate = parseDate("01/09/24");
-  let totalDuration = Math.floor((endDate - startingDate) / (1000 * 60 * 60 * 24));
-  let elapsedDuration = Math.floor((today - startingDate) / (1000 * 60 * 60 * 24));
-  let progressPercentage = Math.floor(Math.min((elapsedDuration / totalDuration) * 100, 100));
-
-  progressbar.style.width = progressPercentage + '%';
-  progressbar.innerHTML = progressPercentage + '%';;
-  if(data.certificate=="" && today <= endDate){
-    certifstat.innerHTML = "Not Given";
-    compstat.innerHTML = "In Progress";
-    if(data.domain == "Campus Ambassador"){
-      document.getElementById('taskcontainer').style.display="none";
-    }else{
-      console.log("out");
-      if(today > startingDate){
-        console.log("in");
-        taskshow(data,domainpdf,startingDate,checkDate);
-        deadline.style.display="block";
-      }else{
-        document.getElementById('tasknt').style.display="block";
-        document.getElementById('taskcontainer').style.display="none";
-      }
-    } 
-  }else if(data.certificate){
-    certifstat.innerHTML = "Certificate Given"
-    compstat.innerHTML = "Completed"
-    document.getElementById('taskcontainer').style.display="none";
-    document.getElementById('awards').style.display="block";
-  }else if(data.certificate=="" && today > endDate){
-    certifstat.innerHTML = "Not Given (Tasks Not Submitted)"
-    compstat.innerHTML = "Terminated (Not Pursued)"
-    progressbar.style.width="100%";
-    progressbar.innerHTML="0%";
-    tasklink.style.display="block"
-    document.getElementById('dateended').style.display="block";
-    document.getElementById('tasklinkbtn').style.display="block";
-    document.getElementById('assignedtask').style.display = "none";
-    tasklink.querySelector("p").innerHTML="Note: You can get certificate if you submit the project <a href='https://forms.gle/adz4YS2CocxAw7bb7' style='color:#ffffff;'> Submit Now</a> and inform us <a style='color:#ffffff;' href='mailto:cantileverinfo@gmail.com'> cantileverinfo@gmail.com </a> "
-    taskshow(data,domainpdf,startingDate,checkDate);
-  }
-  
-}
-
-
-function taskshow(data,domainpdf,startingDate,checkDate){
-  const domainData = getTasksForDomain(data.domain);
-        const tasks = domainData.tasks;
-        domainpdf.setAttribute('href',domainData.link)
-        let taskbox = document.getElementById("taskbox");
-        taskbox.innerHTML = "";
-        var i = 1;
-          tasks.forEach(e => {
-            taskbox.innerHTML +=`
-          <div class="col-md-4 col-xl-4">
-                <div class="card bg-c-grey order-card">
+            
+              <div class="col-md-4 col-xl-4">
+                <div class="card bg-c-purple order-card">
                     <div class="card-block">
-                        <h6 class="m-b-20">Task ${i}</h6>
-                        <h3 class="m-b-0">${e}</h3>
+                        <h6 class="m-b-20">Internship Completion</h6>
+                        <h4 class="text-right">Status</h4>
+                      
+                        <p class="m-b-0" id="compstat">In Progress</p>
                     </div>
                 </div>
             </div>
-          `;
+        </div>
+      </div>
 
-          i++;
-        });
-        deadline.display="block"
-  
-        if(startingDate.getTime() == checkDate.getTime()){
-          document.getElementById('tasklink').style.display="block";
-          document.getElementById('tasklinkbtn').style.display="block";
-        }
-}
+      
 
-function parseDate(dateString) {
-    let parts = dateString.split('/');
-    let day = parseInt(parts[0], 10);
-    let month = parseInt(parts[1], 10) - 1; // Months are zero-indexed in JavaScript Date
-    let year = parseInt(parts[2], 10) + 2000; // Assuming 21st century for 2-digit years
+      <div class="tasknt" id="tasknt">
+        <hr/>
+        <h4 class="text-danger">Note: Please Wait For Internship To Be Start Then Tasks Will Be Shared Here.</h4>
+      </div>
+      <div class="p-3 my-4" style="background-color: rgb(0, 0, 0);">
+            <p class="text-white fs-6 m-0" >Note: If any problem occurs sign out from the account refresh the website and remove cache from the browser then try again if not fixed then contact us on our mail <a class="text-danger" href="mailto:cantileverinfo@gmail.com">cantileverinfo@gmail.com</a> </p>  
+          </div> 
+      <div id="taskcontainer"> 
+        <hr/>
 
-    return new Date(year, month, day);
-}
+        <h4 class="mt-5">Tasks</h4>
+
+          
+          <div class="p-3 my-4 notif" id="dateended" style="background-color: rgb(208, 37, 255);">
+            <p class="text-white fs-6 m-0" >Note: If You have submitted the tasks please wait for 3 days for verification after it you will recieve all the perks through mail. </p>  
+          </div> 
+          <div class="p-3 my-4 notif text-white" id="tasklink" style="background-color: rgb(255, 74, 74); ">
+            <p class="text-white fs-6 m-0" >Note: Submit Your Task Before Deadline To Recieve Certificate And For Completion Of Your Internship  <a class="text-white" href="https://forms.gle/adz4YS2CocxAw7bb7"> Task Submission Link </a> </p>  
+          </div>
+          <div class="p-3 bg-info-subtle my-4" id="assignedtask"> 
+            <p class="text-black fs-6 m-0 ">Note: Please  Complete the assigned tasks before the deadline. Task submission will be open for you before the deadline.</p>
+          </div>
+        
+        <div class="container">
+        <div class="d-flex flex-wrap" id="taskbox">
+        
+        </div>
+        <div class="">
+          <h5 class="my-4">Task Details (pdf)</h5>
+          <a href="" id ="domainpdf">
+            <img src="/assets/images/interntask.jpg" class="linkimg rounded-2 shadow-sm border" alt="cantilever internship dashboard">
+          </a>
+        </div>
+        <div class="mt-4">
+          <h5 class="my-4 text-primary">Tasks Guidelines</h5>
+          <ol class="text-info-emphasis">
+            <li>UPDATE YOUR LINKEDIN
+
+              PROFILE AND <a href="https://www.linkedin.com/company/cantilever-in/"> FOLLOW US</a></li>
+              <li>CLICK ON ABOVE PDF TO VIEW TASK DETAILS</li>
+            <li>COMPLETE THE TASKS GIVEN
+
+              TO YOU</li>
+              <li>
+                MAINTAIN A SEPRATE GITHUB REPO
+
+    NAMED WITH “CANTILEVER”
+              </li>
+              <li>SHARE THE LINK OF YOUR REPO IN
+
+    TASK SUBMISSION FORM</li>
+    <li>A TASK SUBMISSION FORM WILL BE SHARED TO YOU ON EMAIL AND HERE BEFORE THE DEADLINE</li>
+          </ol>
+
+          <p class="text-danger">NOTE: We track all activities, including logins, task submissions, and task quality, among others. </p>
+        </div>
+      </div>
+      </div>
+
+      <div class="container mt-5" id="awards">
+      <hr>
+        <h2 class="mt-5 mb-4 text-primary text-center">🎊 Congratulations! For The Completion Of Your Internship 🎊</h2>
+        <p class="text-dark text-center fs-6 mb-4">Your dedication and hard work have truly paid off.<br> Wishing you continued success in your future endeavors</p>
+        <p class="text-danger text-center fs-6 mb-5">Check your mail for the Certificate and LOR</p>
+      
+        <!-- <hr>
+        <h4 class="mt-5">Certificate</h4>
+        <a href="" id ="domainpdf">
+          <img src="/assets/images/interntask.jpg" class="linkimg rounded-2 shadow-sm border" alt="cantilever internship dashboard">
+        </a>
+        <hr class="mt-5">
+        <h4 class="mt-5">Lor</h4>
+        <a href="" id ="domainpdf">
+          <img src="/assets/images/interntask.jpg" class="linkimg rounded-2 shadow-sm border" alt="cantilever internship dashboard">
+        </a> -->
+
+      </div>
 
 
-function getTasksForDomain(dom) {  
-  let tasklist = {
-  "web development": {
-    "tasks": ["E-commerce", "News platform"],
-    "link": "https://drive.google.com/file/d/1Z7QgDllEd2Ao4MQGipdhIRBI55U0AQcL/view?usp=sharing"
-  },
-  "ui/ux": {
-    "tasks": ["Textbook Hub", "Skill Share"],
-    "link": "https://drive.google.com/file/d/1w_VTM0gSGwVG6Ogf0-dF1iFw8XEgHK2z/view?usp=sharing"
-  },
-  "machine learning": {
-    "tasks": ["Sentiment Analysis", "Credit Card Fraud"],
-    "link": "https://drive.google.com/file/d/17gbZCJXYRGiQLmtOh6t43hfwyLEokOW0/view?usp=sharing"
-  },
-  "c++ programming": {
-    "tasks": ["Inventory Management", "Simple Social", "Number Guessing"],
-    "link": "https://drive.google.com/file/d/1VOi52ZyTnK2Muoh90kudrhSOH_6WGR-y/view?usp=sharing"
-  },
-  "python programming": {
-    "tasks": ["Contact Book", "Personal Finance", "EXPENSE TRACKER"],
-    "link": "https://drive.google.com/file/d/1XIVQhuZvA5oLcXiyrL1WRsPbXsN1HSZ6/view?usp=sharing"
-  },
-  "java programming": {
-    "tasks": ["Simple Banking", "Library Management", "Simple Chat"],
-    "link": "https://drive.google.com/file/d/14xCTHpQM7pob0tBzHSFLodTbCtwFEbyb/view?usp=drive_link"
-  },
-  "artificial intelligence": {
-    "tasks": ["Chatbot NLP", "Image Captioning"],
-    "link": "https://drive.google.com/file/d/1Ux6irmU-gLRq7z2crFXdrkxAcxmHjwne/view?usp=sharing"
-  },
-  "data science": {
-    "tasks": ["Webscrapping", "Text Detection"],
-    "link": "https://drive.google.com/file/d/1_V6oeTmmobXnhBwb2cv9NnD9esUqqBvw/view?usp=sharing"
-  },
-  "android development": {
-    "tasks": ["Recipe Management", "News app"],
-    "link": "https://drive.google.com/file/d/1lDfgU9sJT9I_asbGDzhMzXRscrH4Wz1O/view?usp=sharing"
-  }
-};
-  dom = dom.toLowerCase();
-  if (tasklist.hasOwnProperty(dom)) {
-    return tasklist[dom];
-  } else {
-    return [];
-  }
+    <hr/>
 
-}
+    <h6 class="">For any kind of help you can mail us at : <a href="mailto:cantileverinfo@gmail.com"> cantileverinfo@gmail.com </a> or <a href="/contact-us-software-solution/"> Contact Us Here </a></h6>
 
 
-document.getElementById('verificatonform').addEventListener('submit', (e) => {
-  e.preventDefault();
-  const verifidinput = document.getElementById('verifidinput').value;
-  if(verifidinput.length >9){
-  
-    const url = `https://script.google.com/macros/s/AKfycbyC2C2zbhq3Ekfh05yRj7A3rYFpc7rzs4gVA8rPLwqkzMz1oIiDTf-ZOoI2w0ozw3ag/exec?id=${verifidinput}`;
+      </div>
+      
+    </div>
+
+    <!-- Footer -->
+
+    <footer class="bg-black d-flex text-white p-5 justify-content-around  ">
+      <div>
+        <h3>Career Opportunity</h3>
+        <hr>
+        <ul class="list-unstyled fs-6">
+          <li>Web Development </li>
+          <li>Android Development</li>
+          <li>Data Science </li>
+          <li>Java Programming</li>
+          <li>Cyber Security</li>
+          <li>Artificial intelligence</li>
+          <li>Machine learning</li>
+          <li>C++ Programming</li>
+          <li>Python Programming</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Solution</h3>
+        <hr>
+        <ul class="list-unstyled fs-6">
+          <li>Team Management</li>
+          <li>Goal Management</li>
+          <li>Task Management</li>
+          <li>Work Management</li>
+          <li>Customer Management</li>
+          <li>Project Planing</li>
+        </ul>
+        
+      </div>
+
+      <div>
+        <h3>Usefull Links</h3>
+        <hr>
+        <ul class="list-unstyled fs-6">
+          <li>About us</li>
+          <li>Services</li>
+          <li>Career</li>
+          <li>Contact Us</li>
+        </ul>
+    </div>
+
+      <div>
+        <h3>Resources</h3>
+        <hr>
+        <ul class="list-unstyled fs-6">
+          <li>Help Center</li>
+          <li>Support</li>
+          <li>forum</li>
+        </ul>
+        
+        <h3>Contact Us</h3>
+        <hr>
+        <ul class="list-unstyled fs-6">
+          <li>+91 9870574680 </li>
+          <li>cantileverinfo@gmail.com</li>
+        </ul>
+      </div>
+
+      
+
+      <div>
+
+        <div class="d-flex gap-2 align-items-center "> 
+          <img width="45" src="/assets/images/logo.png" alt="Cantilever logo">
+          <h1 class="mt-2">Canti<span style="color: #7559ff;">Lever</span></h1>
+        </div>
+
+        <div class="d-flex gap-3 mt-2">
+          <img src="/assets/images/whatsaap.png" width="35" alt="Cantilever whatsaap" >
+          <img src="/assets/images/telegrM.png"  width="35"  alt="Cantilever telegram" >
+        </div>
+      
+      
+      </div>
+      </div>
+    </footer>
+    <hr class="m-0 bg-secondary">
+    <div class="bg-black text-center">
+      <p class="m-0 p-4 text-white  ">Copyright © 2006 - 2024 CantiLever</p>
+    </div>
     
-    validerr.innerHTML = "Fetching...";
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        
-          setCookie("internuid",data.uniqueId,3);
-          data.version = "v2.3";
-          localStorage.setItem("interndata", JSON.stringify(data));
-          checkveridata()
-        
-      })
-      .catch(error => {
-        
-       
-        validerr.innerHTML = "Not Found. If you have completed the internship recently, please wait for 24hrs";
-      });
-  }else{
-    validerr.innerHTML = "Id Must Be Greater Than Or Equal to 10 Charachter";
-  }
-  
-    
-});
 
 
-function getCookie(name){
-    var pattern = RegExp(name + "=.[^;]*")
-    var matched = document.cookie.match(pattern)
-    if(matched){
-        var cookie = matched[0].split('=')
-        return cookie[1]
-    }
-    return false
-}
-
-function deleteCookie(name) {
-    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    // console.log("Cookie with name '" + name + "' deleted");
-}
-
-
-function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    // console.log(name + "=" + (value || "") + expires + "; path=/");
-
-}
-
-</script>
-
+    <script src="dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
 </body>
