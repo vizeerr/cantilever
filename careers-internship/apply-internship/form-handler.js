@@ -5,8 +5,10 @@ document.getElementById("internForm").addEventListener("submit", async function 
   const formData = new FormData(this);
   const submitBtn = document.getElementById("submitBTN")
 
+  formData.set("formType", "registration");
   // Convert full name to UPPERCASE and email to lowercase
   formData.set("fullName", formData.get("fullName").toUpperCase());
+
   formData.set("university", formData.get("university").toUpperCase());
   formData.set("email", formData.get("email").toLowerCase());
 

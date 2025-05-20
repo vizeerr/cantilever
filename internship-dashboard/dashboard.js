@@ -89,6 +89,13 @@ progressbar.innerHTML = progressPercentage + '%';
     
         certifstat.innerHTML = "Not Given";
         compstat.innerHTML = "In Progress";
+        
+        if(dataDuration == "1 Month" || dataDuration == "2 Month"){
+          document.getElementById("taskToDo").innerHTML="Note: Do any 2 Tasks (if 3 are shown)"
+        }
+        if(dataDuration == "3 Month"){
+          document.getElementById("taskToDo").innerHTML="Note: Do any 3 Tasks (if 4 are shown)"
+        }
 
         if(today >= startingDate){
             taskshow(data,domainpdf,startingDate,endDate,dataDuration);
@@ -105,6 +112,7 @@ progressbar.innerHTML = progressPercentage + '%';
     
     document.getElementById('taskcontainer').style.display="none";
     document.getElementById('awards').style.display="block";
+    document.getElementById("taskToDo").style.display="none";
 
   }else if(data.status=="Terminated" || data.status !=="Completed" && today > endDate){
 
@@ -123,6 +131,7 @@ progressbar.innerHTML = progressPercentage + '%';
     else if(data.status == "Initiated"){
         certifstat.innerHTML = "Not Given";
         compstat.innerHTML = "Initiated (Start Soon)";
+        document.getElementById("taskToDo").style.display="none";
     }
   
 }
@@ -152,6 +161,7 @@ function taskshow(data,domainpdf,startingDate,endDate,duration){
           i++;
         });
         deadline.display="block"
+        
   
         if (hasHalfTimePassed(startingDate, endDate)) {
           document.getElementById('tasklink').innerHTML=`Note: Submit Your Task Before ${data.awardDate} To Recieve Certificate And For Completion Of Your Internship`
@@ -195,7 +205,7 @@ function getTasksForDomain(dom,duration) {
   "web development": [ 
     {
       "duration":"1 Month",
-      "tasks": ["E-Commerce", "News Platform"],
+      "tasks": ["Blog Website", "Task Management"],
       "link": "https://drive.google.com/file/d/1ArvreueL5eYfNfkNLRMmH-WPBINTWiYI/view?usp=drive_link"
     },
     {
@@ -206,7 +216,7 @@ function getTasksForDomain(dom,duration) {
     {
       "duration":"3 Month",
       "tasks": ["Textbook Hub", "Skill Share","E-learning Platform"],
-      "link": ""
+      "link": "https://drive.google.com/file/d/16AZkoP5c0jklKooqVU_L5n8QGROyeKli/view?usp=drive_link"
     }
   ]
   ,
@@ -247,7 +257,7 @@ function getTasksForDomain(dom,duration) {
       {
       "duration":"3 Month",
       "tasks": ["Inventory Management", "Simple Social", "Number Guessing"],
-      "link": "https://drive.google.com/file/d/1VOi52ZyTnK2Muoh90kudrhSOH_6WGR-y/view?usp=drive_link"
+      "link": "https://drive.google.com/file/d/1hdkDlsHSPuiYIdzOl85zwCOEyc90mnx9/view?usp=drive_link"
       }
   ],
 
@@ -265,7 +275,7 @@ function getTasksForDomain(dom,duration) {
     {
       "duration":"3 Month",
       "tasks": ["Contact Book", "Personal Finance", "EXPENSE TRACKER"],
-      "link": "https://drive.google.com/file/d/1XIVQhuZvA5oLcXiyrL1WRsPbXsN1HSZ6/view?usp=drive_link"
+      "link": "https://drive.google.com/file/d/1vQWdN9q4oFn7xgg5phiyKurFfLUTer2v/view?usp=drive_link"
     }
   ],
 
@@ -283,7 +293,7 @@ function getTasksForDomain(dom,duration) {
     {
       "duration":"3 Month",
       "tasks": ["Simple Banking", "Library Management", "Simple Chat"],
-      "link": "https://drive.google.com/file/d/14xCTHpQM7pob0tBzHSFLodTbCtwFEbyb/view?usp=drive_link"
+      "link": "https://drive.google.com/file/d/16KHaf8nQSEV3ziNQj5_fR1UWDtm2PTLI/view?usp=drive_link"
     } 
   ],
 
@@ -339,7 +349,25 @@ function getTasksForDomain(dom,duration) {
       "tasks": ["Recipe Management", "News app" , "Note-Taking App"],
       "link": "https://drive.google.com/file/d/19x_wAEZFJ4T_7ZgHnQ-phGAKeryeHTGq/view?usp=drive_link"
     }
+  ],
+  "cyber security":[
+    {
+      "duration":"1 Month",
+      "tasks": ["Webscrapping", "Keylogger", "Phishing Page","WHOIS Domain"],
+      "link": "https://drive.google.com/file/d/1hFzg2PwtBXRHxtdKJ4plqm7ymVntpoWk/view?usp=drive_link"
+    },
+    {
+      "duration":"2 Month",
+      "tasks": ["Webscrapping", "Keylogger", "Phishing Page","WHOIS Domain"],
+      "link": "https://drive.google.com/file/d/1hFzg2PwtBXRHxtdKJ4plqm7ymVntpoWk/view?usp=drive_link"
+    },
+    {
+      "duration":"3 Month",
+      "tasks": ["Webscrapping", "Keylogger", "Phishing Page","WHOIS Domain"],
+      "link": "https://drive.google.com/file/d/1hdkDlsHSPuiYIdzOl85zwCOEyc90mnx9/view?usp=drive_link"
+    },
   ]
+
 };
   dom = dom.toLowerCase();
   if (tasklist.hasOwnProperty(dom)) {
