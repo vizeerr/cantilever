@@ -87,7 +87,7 @@ progressbar.innerHTML = progressPercentage + '%';
 
   if(data.status !=="Completed" && data.status !=="Terminated" && today <= endDate){
     
-        certifstat.innerHTML = "Not Given";
+        certifstat.innerHTML = "Not Issued";
         compstat.innerHTML = "In Progress";
         
         if(dataDuration == "1 Month" || dataDuration == "2 Month"){
@@ -116,7 +116,7 @@ progressbar.innerHTML = progressPercentage + '%';
 
   }else if(data.status=="Terminated" || data.status !=="Completed" && today > endDate){
 
-    certifstat.innerHTML = "Not Given (Tasks Not Submitted)"
+    certifstat.innerHTML = "Not Issued (Tasks Not Submitted)"
     compstat.innerHTML = "Terminated (Not Pursued)"
     progressbar.style.width="100%";
     progressbar.innerHTML="0%";
@@ -129,7 +129,7 @@ progressbar.innerHTML = progressPercentage + '%';
   
     }
     else if(data.status == "Initiated"){
-        certifstat.innerHTML = "Not Given";
+        certifstat.innerHTML = "Not Issued";
         compstat.innerHTML = "Initiated (Start Soon)";
         document.getElementById("taskToDo").style.display="none";
     }

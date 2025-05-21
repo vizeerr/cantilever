@@ -222,15 +222,88 @@
           </div>
         
         <div class="container">
+
         <div class="d-flex flex-wrap" id="taskbox">
         
         </div>
+
         <div class="">
           <h5 class="my-4">Task Details (pdf)</h5>
           <a href="" id ="domainpdf">
             <img src="/assets/images/interntask.jpg" class="linkimg rounded-2 shadow-sm border" alt="cantilever internship dashboard">
           </a>
         </div>
+
+        <div class="my-5">
+            <h4 class="mb-5 text-center">Submission Form</h4>
+              <form id="submissionForm" class="border p-5">
+                <div id="firstTab">
+                  <div class="mb-4">
+                    <label for="id" class="form-label">Id</label>
+                    <input type="text" class="form-control text-lowercase" id="id" name="id" required disabled/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control text-lowercase" id="email" name="email" required disabled/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control text-uppercase" name="fullName" id="fullName" required disabled/>
+                  </div>   
+                  <div class="mb-4">
+                    <label for="internshipDomain" class="form-label">Internship Domain</label>
+                    <input type="text" class="form-control text-uppercase" name="internshipDomain" id="internshipDomain" required disabled/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="joinDate" class="form-label">Start Date</label>
+                    <input type="text" class="form-control text-uppercase" name="joinDate" id="joinDate" required disabled/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="endDate" class="form-label">End Date</label>
+                    <input type="text" class="form-control text-uppercase" name="endDate" id="endDate" required disabled/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="duration" class="form-label">Duration</label>
+                    <input type="text" class="form-control text-uppercase" name="duration" id="duration" required disabled/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="projOne" class="form-label">Project 1 Link</label>
+                    <input type="text" class="form-control" name="projOne" id="projOne" required placeholder="Github Link For Project 1"/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="projTwo" class="form-label">Project 2 Link</label>
+                    <input type="text" class="form-control" name="projTwo" id="projTwo" required placeholder="Github Link For Project 2"/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="projThree" class="form-label">Project 3 Link</label>
+                    <input type="text" class="form-control" name="projThree" id="projThree" required placeholder="Github Link For Project 3"/>
+                  </div>
+                </div>
+                
+                <div id="firstTab">
+                  
+                  <div class="mb-4">
+                    <label for="linkedSS" class="form-label">Linkedin Screenshot</label>
+                    <input type="file" class="form-control" name="linkedSS" id="linkedSS" required/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="paymentSS" class="form-label">Payment Screenshot</label>
+                    <input type="file" class="form-control" name="paymentSS" id="paymentSS" required/>
+                  </div>
+
+                  <div class="mb-4 form-check">
+                    <input class="form-check-input" type="checkbox" name="terms" id="terms" required />
+                    <label class="form-check-label" for="terms">
+                      I accept the terms and conditions.
+                    </label>
+                  </div>
+                  
+                </div>
+                
+                <button type="submit" id="submitBTN" class="btn btn-primary">Submit</button>
+              </form>
+          </div>
+
         <div class="mt-4">
           <h5 class="my-4 text-primary">Tasks Guidelines</h5>
           <ol class="text-info-emphasis">
@@ -254,6 +327,7 @@
 
           <p class="text-danger">NOTE: We track all activities, including logins, task submissions, and task quality, among others. </p>
         </div>
+        
       </div>
       </div>
 
