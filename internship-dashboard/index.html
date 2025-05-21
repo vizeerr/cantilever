@@ -202,6 +202,85 @@
       <div class="p-3 my-4" style="background-color: rgb(0, 0, 0);">
             <p class="text-white fs-6 m-0" >Note: If any problem occurs sign out from the account refresh the website and remove cache from the browser then try again if not fixed then contact us on our mail <a class="text-danger" href="mailto:cantileverinfo@gmail.com">cantileverinfo@gmail.com</a> </p>  
           </div> 
+          <div id="submissionCont" class="my-5">
+        <hr/>
+            <h4 class="mb-3 mt-5 text-center">Task Submission Form</h4>
+            <p class="text-danger text-center mb-4">Note: Some fields are prefilled also if any problem occur while submiting the task inform us on our mail </p>
+              <form id="submissionForm" class="border p-5">
+                <div id="firstTab">
+                  <div class="mb-4 ">
+                    <label for="id" class="form-label">Id</label>
+                    <input type="text" class="form-control bg-body-secondary" id="id" name="id" required readonly/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control bg-body-secondary text-lowercase" id="email" name="email" required readonly/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="fullName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control bg-body-secondary text-uppercase" name="fullName" id="fullName" required readonly/>
+                  </div>   
+                  <div class="mb-4">
+                    <label for="internshipDomain" class="form-label">Internship Domain</label>
+                    <input type="text" class="form-control bg-body-secondary " name="internshipDomain" id="internshipDomain" required readonly/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="startDate" class="form-label">Start Date</label>
+                    <input type="text" class="form-control bg-body-secondary" name="startDate" id="startDate" required readonly/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="awardDate" class="form-label">End Date</label>
+                    <input type="text" class="form-control bg-body-secondary" name="awardDate" id="awardDate" required readonly/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="durationField" class="form-label">Duration</label>
+                    <input type="text" class="form-control bg-body-secondary" name="durationField" id="durationField" required readonly/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="projOne" class="form-label">Project 1 Link</label>
+                    <input type="text" class="form-control" name="projOne" id="projOne" required placeholder="Github Link For Project 1"/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="projTwo" class="form-label">Project 2 Link</label>
+                    <input type="text" class="form-control" name="projTwo" id="projTwo" required placeholder="Github Link For Project 2"/>
+                  </div>
+                  <div class="mb-4" style="display:none">
+                    <label for="projThree" class="form-label">Project 3 Link</label>
+                    <input type="text" class="form-control" name="projThree" id="projThree" placeholder="Github Link For Project 3"/>
+                  </div>
+
+                  <button type="" id="nextBTN" class="btn btn-primary">Next</button>
+                </div>
+                
+                <div id="secondTab">
+                  
+                  <div class="mb-4">
+                    <label for="linkedSS" class="form-label">Linkedin Screenshot</label>
+                    <input type="file" class="form-control" name="linkedSS" id="linkedSS" required/>
+                  </div>
+                  <div class="mb-4">
+                    <label for="paymentSS" class="form-label">Payment Screenshot</label>
+                    <input type="file" class="form-control" name="paymentSS" id="paymentSS" required/>
+                  </div>
+
+                  <div class="mb-4 form-check">
+                    <input class="form-check-input" type="checkbox" name="terms" id="terms" required />
+                    <label class="form-check-label" for="terms">
+                      I accept the terms and conditions.
+                    </label>
+                  </div>
+
+                  <button type="submit" id="submiBTN" class="btn btn-primary">Submit</button>
+                </div>
+
+                <div id="loader" class="text-center py-4" style="display: none;">
+                  <div class="spinner-border text-danger" role="status">
+                  </div>
+                  <p class="my-3 text-black">Please Wait Submitting... <br/> Do not reload website!! </p>
+                </div>
+                
+              </form>
+          </div>
       <div id="taskcontainer"> 
         <hr/>
 
@@ -222,6 +301,7 @@
           </div>
         
         <div class="container">
+          
 
         <div class="d-flex flex-wrap" id="taskbox">
         
@@ -234,76 +314,7 @@
           </a>
         </div>
 
-        <div class="my-5">
-            <h4 class="mb-5 text-center">Submission Form</h4>
-              <form id="submissionForm" class="border p-5">
-                <div id="firstTab">
-                  <div class="mb-4">
-                    <label for="id" class="form-label">Id</label>
-                    <input type="text" class="form-control text-lowercase" id="id" name="id" required disabled/>
-                  </div>
-                  <div class="mb-4">
-                    <label for="email" class="form-label">Email Address</label>
-                    <input type="email" class="form-control text-lowercase" id="email" name="email" required disabled/>
-                  </div>
-                  <div class="mb-4">
-                    <label for="fullName" class="form-label">Full Name</label>
-                    <input type="text" class="form-control text-uppercase" name="fullName" id="fullName" required disabled/>
-                  </div>   
-                  <div class="mb-4">
-                    <label for="internshipDomain" class="form-label">Internship Domain</label>
-                    <input type="text" class="form-control text-uppercase" name="internshipDomain" id="internshipDomain" required disabled/>
-                  </div>
-                  <div class="mb-4">
-                    <label for="joinDate" class="form-label">Start Date</label>
-                    <input type="text" class="form-control text-uppercase" name="joinDate" id="joinDate" required disabled/>
-                  </div>
-                  <div class="mb-4">
-                    <label for="endDate" class="form-label">End Date</label>
-                    <input type="text" class="form-control text-uppercase" name="endDate" id="endDate" required disabled/>
-                  </div>
-                  <div class="mb-4">
-                    <label for="duration" class="form-label">Duration</label>
-                    <input type="text" class="form-control text-uppercase" name="duration" id="duration" required disabled/>
-                  </div>
-                  <div class="mb-4">
-                    <label for="projOne" class="form-label">Project 1 Link</label>
-                    <input type="text" class="form-control" name="projOne" id="projOne" required placeholder="Github Link For Project 1"/>
-                  </div>
-                  <div class="mb-4">
-                    <label for="projTwo" class="form-label">Project 2 Link</label>
-                    <input type="text" class="form-control" name="projTwo" id="projTwo" required placeholder="Github Link For Project 2"/>
-                  </div>
-                  <div class="mb-4">
-                    <label for="projThree" class="form-label">Project 3 Link</label>
-                    <input type="text" class="form-control" name="projThree" id="projThree" required placeholder="Github Link For Project 3"/>
-                  </div>
-                  <button type="" id="submitBTN" class="btn btn-primary">Next</button>
-                </div>
-                
-                <div id="firstTab">
-                  
-                  <div class="mb-4">
-                    <label for="linkedSS" class="form-label">Linkedin Screenshot</label>
-                    <input type="file" class="form-control" name="linkedSS" id="linkedSS" required/>
-                  </div>
-                  <div class="mb-4">
-                    <label for="paymentSS" class="form-label">Payment Screenshot</label>
-                    <input type="file" class="form-control" name="paymentSS" id="paymentSS" required/>
-                  </div>
-
-                  <div class="mb-4 form-check">
-                    <input class="form-check-input" type="checkbox" name="terms" id="terms" required />
-                    <label class="form-check-label" for="terms">
-                      I accept the terms and conditions.
-                    </label>
-                  </div>
-
-                  <button type="submit" id="submitBTN" class="btn btn-primary">Submit</button>
-                </div>
-                
-              </form>
-          </div>
+        
 
         <div class="mt-4">
           <h5 class="my-4 text-primary">Tasks Guidelines</h5>
@@ -360,6 +371,20 @@
       </div>
       
     </div>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="erroModel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="erroModel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
+  </div>
+</div>
 
     <!-- Footer -->
 
@@ -448,6 +473,7 @@
 
 
     <script src="dashboard.js"></script>
+    <script src="submission.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     
 </body>

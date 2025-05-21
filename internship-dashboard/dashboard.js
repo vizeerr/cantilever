@@ -57,6 +57,7 @@ function setdashdata(data){
   let progressbar = document.getElementById('progressbar');
   let compstat = document.getElementById('compstat');
   let duration = document.getElementById('duration');
+ 
   
   internuid.innerHTML = "ID: " +data.uniqueId || "NA";
   internname.innerHTML = data.studentName || "NA";
@@ -85,7 +86,7 @@ let progressPercentage = Math.floor(
 progressbar.style.width = progressPercentage + '%';
 progressbar.innerHTML = progressPercentage + '%';
 
-  if(data.status !=="Completed" && data.status !=="Terminated" && today <= endDate){
+  if(data.status !=="Completed" && data.status !=="Terminated" && data.status !=="Submitted" && today <= endDate){
     
         certifstat.innerHTML = "Not Issued";
         compstat.innerHTML = "In Progress";
@@ -122,7 +123,7 @@ progressbar.innerHTML = progressPercentage + '%';
     progressbar.innerHTML="0%";
     tasklink.style.display="block"
     document.getElementById('dateended').style.display="block";
-    document.getElementById('tasklinkbtn').style.display="block";
+    // document.getElementById('tasklinkbtn').style.display="block";
     document.getElementById('assignedtask').style.display = "none";
     tasklink.querySelector("p").innerHTML="Note: You can get certificate if you submit the project <a href='https://forms.gle/adz4YS2CocxAw7bb7' style='color:#ffffff;'> Submit Now</a> and inform us <a style='color:#ffffff;' href='mailto:cantileverinfo@gmail.com'> cantileverinfo@gmail.com </a> "
     taskshow(data,domainpdf,startingDate,endDate,dataDuration);
@@ -133,14 +134,18 @@ progressbar.innerHTML = progressPercentage + '%';
         compstat.innerHTML = "Initiated (Start Soon)";
         document.getElementById("taskToDo").style.display="none";
     }
+    else if(data.status=="Submitted"){
+      certifstat.innerHTML = "Verification (In Progress)"
+      compstat.innerHTML = "Task Submitted"
+      document.getElementById('taskcontainer').style.display="none";
+      document.getElementById("taskToDo").style.display="none";
+    }
   
 }
 
 
 function taskshow(data,domainpdf,startingDate,endDate,duration){
   const domainData = getTasksForDomain(data.domain,duration);
-  console.log(domainData);
-  
         const tasks = domainData.tasks;
         domainpdf.setAttribute('href',domainData.link)
         let taskbox = document.getElementById("taskbox");
@@ -167,6 +172,8 @@ function taskshow(data,domainpdf,startingDate,endDate,duration){
           document.getElementById('tasklink').innerHTML=`Note: Submit Your Task Before ${data.awardDate} To Recieve Certificate And For Completion Of Your Internship`
             document.getElementById('tasklink').style.display="block";
             document.getElementById('tasklinkbtn').style.display="block";
+          
+            
         }
 }
 
@@ -389,10 +396,7 @@ document.getElementById('dashboardForm').addEventListener('submit', (e) => {
     validerr.innerHTML = "Fetching...";
     fetch(url)
       .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        
-        
+      .then(data => {        
           setCookie("internuid",data.uniqueId,3);
           data.version = "v1.0";
           localStorage.setItem("interndata", JSON.stringify(data));
