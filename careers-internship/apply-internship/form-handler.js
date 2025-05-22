@@ -1,3 +1,7 @@
+const applyloader = document.getElementById("applyloader");
+const submiBTN = document.getElementById('submitBTN')
+submiBTN.disabled="true"
+handleSubmibtn(submiBTN)
 document.getElementById("internForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -24,6 +28,8 @@ document.getElementById("internForm").addEventListener("submit", async function 
   
   submitBtn.disabled = true;
   showModal("Please wait...", "Submitting your application...");
+  document.getElementById('internForm').style.display="none";
+  applyloader.style.display="block"
   try {
     const response = await fetch("https://script.google.com/macros/s/AKfycbwUZKiOUMiqD1_rku7A_MVsNnPexjEGR_qgnoEjxjnrw63oo_9iB2S03jBknugoC4NwWA/exec", {
       method: "POST",
@@ -33,16 +39,18 @@ document.getElementById("internForm").addEventListener("submit", async function 
     const result = await response.json();
     if (result.status === "success") {
       showModal("Internship Application", "Application Submitted Successfully!! Thankyou for applying at Cantilever. ");
-
+      document.getElementById('confirmBox').style.display="block"
       this.reset();
     } else {
-      showModal("Submission Error", result.message || "Something went wrong!");
+      showModal("Submission Error", "Something went wrong! Try again");
+      document.getElementById('internForm').style.display="block";
     }
   } catch (error) {
-    showModal("Network Error", "Submission failed: ");
+    showModal("Network Error", "Submission failed! Try again after 30 minutes. ");
+    document.getElementById('internForm').style.display="block";
   }
   submitBtn.disabled = false;
-
+  applyloader.style.display="none"
 });
 
 function validateForm(data) {
@@ -105,3 +113,25 @@ additionalInfoField.addEventListener("input", () => {
     showModal("Word Limit Exceeded", "You can only enter up to 40 words in the additional info section.");
   }
 });
+
+
+
+function handleSubmibtn(submiBTN) {
+  const requiredFields = [
+    "fullName", "email", "contactNumber", "gender", "internshipDomain", 
+    "university", "qualification", "currentYear", "joinDate", "duration", 
+    "source", "terms"
+  ];
+  requiredFields.forEach((fieldId) => {
+    const input = document.getElementById(fieldId);
+    input.addEventListener("change", checkRequiredFields);
+  });
+
+  function checkRequiredFields() {
+    const allFilled = requiredFields.every((id) => {
+      const el = document.getElementById(id);
+      return el && el.value.trim() !== "";
+    });
+    submiBTN.disabled = !allFilled;
+  }
+}
