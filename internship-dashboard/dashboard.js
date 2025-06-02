@@ -29,7 +29,7 @@ function checkveridata(){
       logindash.style.display = "none";
       Dashboard.setAttribute("style", "display:flex !important;");
       const interndata = JSON.parse(interndataobj);
-      if(interndata.version != "v1.0" || interndata.version == null){
+      if(interndata.version != "v1.1" || interndata.version == null){
         deleteCookie("internuid");
         checkveridata();
       }
@@ -213,7 +213,7 @@ function getTasksForDomain(dom,duration) {
     {
       "duration":"1 Month",
       "tasks": ["Blog Website", "Task Management"],
-      "link": "https://drive.google.com/file/d/1ArvreueL5eYfNfkNLRMmH-WPBINTWiYI/view?usp=drive_link"
+      "link": "https://drive.google.com/file/d/1cOIgakbhfe8FpjfcZguDWu46g_Pwn5QN/view?usp=drive_link"
     },
     {
       "duration":"2 Month",
@@ -398,7 +398,7 @@ document.getElementById('dashboardForm').addEventListener('submit', (e) => {
       .then(response => response.json())
       .then(data => {        
           setCookie("internuid",data.uniqueId,3);
-          data.version = "v1.0";
+          data.version = "v1.1";
           localStorage.setItem("interndata", JSON.stringify(data));
           checkveridata()
         
