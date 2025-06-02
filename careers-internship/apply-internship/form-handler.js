@@ -41,11 +41,17 @@ document.getElementById("internForm").addEventListener("submit", async function 
       showModal("Internship Application", "Application Submitted Successfully!! Thankyou for applying at Cantilever. ");
       document.getElementById('confirmBox').style.display="block"
       this.reset();
-    } else {
+    }else if(result.message=="Email already exists"){
+       showModal("Application already submitted", "Email address already exists !");
+      document.getElementById('internForm').style.display="block";
+    } 
+    else {
       showModal("Submission Error", "Something went wrong! Try again");
       document.getElementById('internForm').style.display="block";
     }
   } catch (error) {
+    console.log(error);
+    
     showModal("Network Error", "Submission failed! Try again after 30 minutes. ");
     document.getElementById('internForm').style.display="block";
   }
