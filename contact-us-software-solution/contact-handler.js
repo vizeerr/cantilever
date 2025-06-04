@@ -38,7 +38,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
     const result = await response.json();
     
     if (result.status === "success") {
-      showModal("Contact", "Thankyou for reaching out to us. We will get back to you shortly !");
+      showModal("Contact", "Thankyou for reaching out to us. We will get back to you shortly.");
       this.reset();
     } else {
       showModal("Submission Error", "Something went wrong! Try again");
