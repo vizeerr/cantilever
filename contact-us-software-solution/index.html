@@ -103,15 +103,15 @@
    <div class="container my-5 p-5">
     <h1 class="display-4 text-center mb-5">Reach Out To Us</h1>
 
-    <form class=" m-auto border-1 border p-5"  method="POST" name="contact"  data-netlify="true">
+    <form class=" m-auto border-1 border p-5"  method="/" name="contactForm" id="contactForm">
       <div class="mb-3">
-        <label for="Email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="Email" name="email" aria-describedby="emailHelp" required>
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" required>
         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
       </div>
       <div class="mb-3">
-        <label for="name" class="form-label">Full Name</label>
-        <input type="text" class="form-control" name="name" id="name" required>
+        <label for="fullName" class="form-label">Full Name</label>
+        <input type="text" class="form-control" name="fullName" id="fullName" required>
       </div>
       
       <div class="mb-3">
@@ -121,8 +121,8 @@
 
       <div class="mb-3">
         <label for="category" class="form-label">Category</label>
-        <select class="form-select" name="category" required>
-          <option >Choose Category</option>
+        <select class="form-select" id="category" name="category" required>
+          <option disabled selected>Choose Category</option>
           <option value="Internship">Internship</option>
           <option value="business">Business Query</option>
           <option value="job">Job Regarding</option>
@@ -138,10 +138,23 @@
       </div>
      
       
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" id="submitBTN" class="btn btn-primary">Submit</button>
     </form>
    </div>
 
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="erroModel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="erroModel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
+  </div>
+</div>
 
    <!-- Footer -->
 <footer class="bg-black d-flex text-white p-5 justify-content-around  ">
@@ -225,6 +238,7 @@
 </div>
     
      <!-- Bootstrap -->
+      <script src="./contact-handler.js"></script>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </body>
