@@ -2,8 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const submissionCont = document.getElementById("submissionCont");
   const userData = JSON.parse(localStorage.getItem("interndata") || "{}");
 
-  if (!userData || !userData.uniqueId) return;
-  if(userData.status=="Submitted") return;
+  if (!userData || !userData.uniqueId || userData.status === "Submitted") return;
 
   if (hasHalfTimePassed(userData.startingDate, userData.awardDate)) {
     formhandler(userData);
@@ -11,22 +10,37 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     submissionCont.style.display = "none";
   }
+
+  document.getElementById("tasklinkbtn").addEventListener("click", () => {
+    formhandler(userData);
+    submissionCont.style.display = "block";
+  });
 });
 
 function formhandler(userData) {
   const form = document.getElementById("submissionForm");
   const submiBTN = document.getElementById("submiBTN");
   const nextBTN = document.getElementById("nextBTN");
-  const firstTab = document.getElementById('firstTab');
-  const secondTab = document.getElementById('secondTab');
   const durationField = document.getElementById("durationField");
   const projThreeDiv = document.getElementById("projThree").closest(".mb-4");
-  const loader = document.getElementById('loader')
-  let tabs = 0;
-  nextBTN.disabled = true;
-  submiBTN.disabled = true;
+  const loader = document.getElementById("loader");
 
-  // Fill user data
+  let tabs = 0;
+
+  const qrCode = document.getElementById('qrCode')
+  if(durationField.value = "1 Month"){
+    qrCode.src="../assets/images/oneqr.png"
+  }
+  
+  if(durationField.value = "2 Month"){
+    qrCode.src="../assets/images/twoqr.png"
+  }
+  
+  if(durationField.value = "3 Month"){
+    qrCode.src="../assets/images/threeqr.png"
+  }
+
+  // Fill data
   document.getElementById("id").value = userData.uniqueId || "";
   document.getElementById("fullName").value = userData.studentName?.toUpperCase() || "";
   document.getElementById("startDate").value = userData.startingDate || "";
@@ -35,128 +49,216 @@ function formhandler(userData) {
   durationField.value = userData.duration || "";
   document.getElementById("email").value = userData.email?.toLowerCase() || "";
 
-  // Show/hide Project 3 based on duration
-  function handleProjThreeVisibility() {
-    if (durationField.value === "3 Month") {
-      projThreeDiv.style.display = "block";
-    } else {
-      projThreeDiv.style.display = "none";
-    }
-  }
-  handleProjThreeVisibility();
-
-  // Tabs
-  tabhandler(tabs);
-
-  nextBTN.addEventListener('click', () => {
-    tabs++;
-    tabhandler(tabs);
-    handleSubmibtn(submiBTN);
+  // Show/hide Project 3
+  projThreeDiv.style.display = durationField.value === "3 Month" ? "block" : "none";
+  durationField.addEventListener("change", () => {
+    projThreeDiv.style.display = durationField.value === "3 Month" ? "block" : "none";
   });
 
-  handleNextbtn(nextBTN, durationField);
-  validateFileInput("linkedSS");
-  validateFileInput("paymentSS");
+  // Tab logic
+  tabhandler(tabs);
+  handleTabValidation(tabs);
 
-  // Submit
+  nextBTN.addEventListener("click", () => {
+    const data = collectTabData(tabs);
+    const duration = durationField.value;
+    const errors = validateTabData(data, tabs, duration);
+
+    if (errors.length === 0) {
+      tabs++;
+      tabhandler(tabs);
+      handleTabValidation(tabs);
+    } else {
+      showModal("Validation Error", errors.join("<br>"));
+    }
+  });
+  
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
+    submiBTN.disabled = true;
+    loader.style.display = "block";
+    showModal("Please wait...", "Submitting your application...");
 
     const formData = new FormData(form);
     formData.set("formType", "submission");
-    
-    const fullName = formData.get("fullName");
-    if (fullName) formData.set("fullName", fullName.toUpperCase());
-
-    const email = formData.get("email");
-    if (email) formData.set("email", email.toLowerCase());
+    formData.set("fullName", formData.get("fullName").toUpperCase());
+    formData.set("email", formData.get("email").toLowerCase());
+    formData.set("upiID", formData.get("upiID").toLowerCase());
 
 
     const data = Object.fromEntries(formData.entries());
-    const validationErrors = validateForm(data, durationField.value);
+    const duration = durationField.value;
+    const errors = validateForm(data, duration);
 
-    if (validationErrors.length > 0) {
-      showModal("Form Validation Errors", validationErrors.join("<br>"));
+    if (errors.length > 0) {
+      showModal("Form Validation Errors", errors.join("<br>"));
+      submiBTN.disabled = false;
+      loader.style.display = "none";
       return;
     }
 
-    submiBTN.disabled = true;
-    showModal("Please wait...", "Do not reload website submitting your application...");
-    loader.style.display="block"
-    secondTab.style.display="none"
     try {
-    const linkedBase64 = await convertFileToBase64(formData.get("linkedSS"));
-    const paymentBase64 = await convertFileToBase64(formData.get("paymentSS"));
+      const linkedBase64 = await convertFileToBase64(formData.get("linkedSS"));
+      const paymentBase64 = await convertFileToBase64(formData.get("paymentSS"));
+      const instaBase64 = await convertFileToBase64(formData.get("instaSS"));
 
-    formData.set("linkedBase", linkedBase64);
-    formData.set("paymentBase", paymentBase64);
-    const finalData = Object.fromEntries(formData.entries());
+      formData.set("linkedBase", linkedBase64);
+      formData.set("paymentBase", paymentBase64);
+      formData.set("instaBase", instaBase64);
+
+      const finalData = Object.fromEntries(formData.entries());
 
       const response = await fetch("https://script.google.com/macros/s/AKfycbwUZKiOUMiqD1_rku7A_MVsNnPexjEGR_qgnoEjxjnrw63oo_9iB2S03jBknugoC4NwWA/exec", {
         method: "POST",
         body: JSON.stringify(finalData),
+        
       });
 
       const result = await response.json();
       if (result.status === "success") {
-        showModal("Success", "Task Submitted Successfully! Thank you to be a part of cantilever.");
+        showModal("Success", "Submitted successfully!");
         form.reset();
-        let interdata = JSON.parse(localStorage.getItem('interndata')) || {};
-        interdata.status = "Submitted";
-        localStorage.setItem('interndata', JSON.stringify(interdata));
-        
-        setTimeout(() => {
-            window.location.reload();
-        }, 2000);
-       
+        localStorage.setItem("interndata", JSON.stringify({ ...userData, status: "Submitted" }));
+        setTimeout(() => window.location.reload(), 2000);
       } else {
-        showModal("Submission Error", "Something went wrong!  Please try again later");
-        firstTab.style.display="block"
-
+        throw new Error("Submission failed");
       }
     } catch (error) {
-      showModal("Network Error", "Submission failed. Please try again later.");
-      firstTab.style.display="block"
+      showModal("Submission Error", "Something went wrong. Please try again later.");
     }
 
     submiBTN.disabled = false;
-    loader.style.display="none"
-    
+    loader.style.display = "none";
   });
 }
 
-function handleNextbtn(nextBTN, durationField) {
-  const requiredFields = ["fullName", "email", "startDate", "awardDate", "internshipDomain", "durationField", "projOne", "projTwo", "projThree"];
-  requiredFields.forEach((fieldId) => {
-    const input = document.getElementById(fieldId);
-    input.addEventListener("input", checkRequiredFields);
+function tabhandler(tabs) {
+  const tabsArr = ["firstTab", "secondTab", "thirdTab"];
+  tabsArr.forEach((id, i) => {
+    document.getElementById(id).style.display = i === tabs ? "block" : "none";
   });
 
-  function checkRequiredFields() {
-    const isThreeMonth = durationField.value === "3 Month";
-    const allFilled = requiredFields.every((id) => {
-      if (!isThreeMonth && id === "projThree") return true;
-      const el = document.getElementById(id);
-      return el && el.value.trim() !== "";
-    });
-    nextBTN.disabled = !allFilled;
+  if (tabs === 2) {
+    document.getElementById("nextBTN").style.display = "none";
+    handleSubmitButtonState();
+  } else {
+    document.getElementById("nextBTN").style.display = "inline-block";
   }
 }
 
-function handleSubmibtn(submiBTN) {
-  const requiredFields = ["linkedSS", "paymentSS"];
-  requiredFields.forEach((fieldId) => {
-    const input = document.getElementById(fieldId);
-    input.addEventListener("change", checkRequiredFields);
+function handleTabValidation(tabIndex) {
+  const durationField = document.getElementById("durationField");
+  const duration = durationField.value;
+
+  const fieldsByTab = {
+    0: ["fullName", "email", "startDate", "awardDate", "internshipDomain", "durationField", "projOne", "projTwo", "projThree"],
+    1: ["linkedSS"],
+  };
+
+  const checkFields = () => {
+    const required = fieldsByTab[tabIndex] || [];
+    const allFilled = required.every(id => {
+      if (id === "projThree" && duration !== "3 Month") return true;
+      const el = document.getElementById(id);
+      return el && el.value.trim() !== "";
+    });
+
+    document.getElementById("nextBTN").disabled = !allFilled;
+  };
+
+  (fieldsByTab[tabIndex] || []).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("input", checkFields);
+    if (el && el.type === "file") el.addEventListener("change", checkFields);
   });
 
-  function checkRequiredFields() {
-    const allFilled = requiredFields.every((id) => {
+  durationField.addEventListener("change", checkFields);
+  checkFields();
+}
+
+function handleSubmitButtonState() {
+  const submiBTN = document.getElementById("submiBTN");
+  const requiredFields = ["upiID", "paymentSS"];
+  ["paymentSS"].forEach(validateFileInput);
+
+  const checkFields = () => {
+    const allFilled = requiredFields.every(id => {
       const el = document.getElementById(id);
       return el && el.value.trim() !== "";
     });
     submiBTN.disabled = !allFilled;
+  };
+
+  requiredFields.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("change", checkFields);
+  });
+
+  checkFields();
+}
+
+function validateTabData(data, tabIndex, duration) {
+  const errors = [];
+  const urlRegex = /^(https?:\/\/)(www\.)?[a-zA-Z0-9.-]+\.[a-z]{2,}.*$/;
+
+  if (tabIndex === 0) {
+    if (!data.fullName || !data.email || !data.startDate || !data.awardDate) {
+      errors.push("Please complete all fields.");
+    }
+
+    ["projOne", "projTwo"].forEach(field => {
+      if (!data[field] || !urlRegex.test(data[field]) || !data[field].includes("github.com")) {
+        errors.push(`${field} must be a valid GitHub URL.`);
+      }
+    });
+
+    if (duration === "3 Month" && (!data.projThree || !urlRegex.test(data.projThree) || !data.projThree.includes("github.com"))) {
+      errors.push("projThree must be a valid GitHub URL.");
+    }
   }
+
+  if (tabIndex === 1) {
+    ["linkedSS"].forEach(validateFileInput);
+    if (!data.linkedSS || !data.instaSS) {
+      errors.push("LinkedIn screenshots are required.");
+    }
+  }
+
+  return errors;
+}
+
+function collectTabData(tabIndex) {
+  const fieldsByTab = {
+    0: ["fullName", "email", "startDate", "awardDate", "internshipDomain", "durationField", "projOne", "projTwo", "projThree"],
+    1: ["linkedSS", "instaSS"],
+  };
+  const fields = fieldsByTab[tabIndex] || [];
+  const data = {};
+  fields.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) data[id] = el.value || (el.files && el.files[0]) || "";
+  });
+  return data;
+}
+
+function validateForm(data, duration) {
+  const errors = [];
+  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const upiRegex = /^[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}$/;
+
+  if (!emailRegex.test(data.email)) errors.push("Invalid email.");
+  if (!upiRegex.test(data.upiID || '')) errors.push("Invalid UPI ID.");
+
+  const required = ["projOne", "projTwo", "linkedSS", "paymentSS"];
+  if (duration === "3 Month") required.push("projThree");
+
+  required.forEach(field => {
+    if (!data[field]) errors.push(`${field} is required.`);
+  });
+
+  if (data.terms !== "on") errors.push("You must agree to the terms and conditions.");
+
+  return errors;
 }
 
 function validateFileInput(id) {
@@ -178,85 +280,25 @@ function validateFileInput(id) {
   });
 }
 
-function tabhandler(tabs) {
-  const firstTab = document.getElementById('firstTab');
-  const secondTab = document.getElementById('secondTab');
-
-  firstTab.style.display = tabs === 0 ? "block" : "none";
-  secondTab.style.display = tabs === 1 ? "block" : "none";
-}
-
-function validateForm(data, duration) {
-  const errors = [];
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  const urlRegex = /^(https?:\/\/)(www\.)?[a-zA-Z0-9.-]+\.[a-z]{2,}.*$/;
-
-  if (!emailRegex.test(data.email)) {
-    errors.push("Please enter a valid email address.");
-  }
-
-  const required = ["projOne", "projTwo", "linkedSS", "paymentSS", "terms"];
-  if (duration === "3 Month") required.push("projThree");
-
-  required.forEach((field) => {
-    if (!data[field]) {
-      errors.push(`The field "${field}" is required.`);
-    }
-  });
-
-  ["projOne", "projTwo", "projThree"].forEach((field) => {
-    if (duration === "3 Month" || field !== "projThree") {
-      const url = data[field];
-      if (url && (!urlRegex.test(url) || !url.includes("github.com"))) {
-        if(field == "projOne"){
-            errors.push(`Project one link must be a valid external GitHub link starting with http:// or https://.`);
-        }
-        if(field == "projTwo"){
-            errors.push(`Project one link must be a valid external GitHub link starting with http:// or https://.`);
-        }
-        if(field == "projThree"){
-            errors.push(`Project one link must be a valid external GitHub link starting with http:// or https://.`);
-        }
-      }
-    }
-  });
-
-  if (data.terms !== "on") {
-    errors.push("You must agree to the terms and conditions.");
-  }
-
-  return errors;
-}
-
-
 function showModal(title, message) {
   document.getElementById("erroModel").innerText = title;
   document.querySelector("#exampleModal .modal-body").innerHTML = message;
   new bootstrap.Modal(document.getElementById("exampleModal")).show();
 }
 
-function hasHalfTimePassed(startDateStr, awardDateStr) {
-  const startDate = parseDate(startDateStr);
-  const awardDate = parseDate(awardDateStr);
-  const today = new Date();
-  const totalDays = Math.floor((awardDate - startDate) / (1000 * 60 * 60 * 24));
-  const halfDays = Math.floor(totalDays / 2);
-  const halfwayDate = new Date(startDate);
-  halfwayDate.setDate(startDate.getDate() + halfDays);
-  return today >= halfwayDate;
-}
-
-function parseDate(dateString) {
-  const date = new Date(dateString);
-  if (isNaN(date.getTime())) throw new Error("Invalid date format. Use YYYY-MM-DD");
-  return date;
-}
-
 function convertFileToBase64(file) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onloadend = () => resolve(reader.result);
-    reader.onerror = () => reject(new Error("File reading failed"));
+    reader.onerror = () => reject("File read failed");
     reader.readAsDataURL(file);
   });
+}
+
+function hasHalfTimePassed(startDateStr, awardDateStr) {
+  const startDate = new Date(startDateStr);
+  const awardDate = new Date(awardDateStr);
+  const today = new Date();
+  const total = (awardDate - startDate) / (1000 * 60 * 60 * 24);
+  return today >= new Date(startDate.setDate(startDate.getDate() + total / 2));
 }
