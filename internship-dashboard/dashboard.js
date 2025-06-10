@@ -121,11 +121,11 @@ progressbar.innerHTML = progressPercentage + '%';
     compstat.innerHTML = "Terminated (Not Pursued)"
     progressbar.style.width="100%";
     progressbar.innerHTML="0%";
-    tasklink.style.display="block"
+    document.getElementById('tasklink').style.display="block"
     document.getElementById('dateended').style.display="block";
     // document.getElementById('tasklinkbtn').style.display="block";
     document.getElementById('assignedtask').style.display = "none";
-    tasklink.querySelector("p").innerHTML="Note: You can get certificate if you submit the project <a href='https://forms.gle/adz4YS2CocxAw7bb7' style='color:#ffffff;'> Submit Now</a> and inform us <a style='color:#ffffff;' href='mailto:cantileverinfo@gmail.com'> cantileverinfo@gmail.com </a> "
+    document.getElementById('tasklink').innerHTML="Note: You can get certificate if you submit the project"
     taskshow(data,domainpdf,startingDate,endDate,dataDuration);
   
     }
@@ -133,6 +133,10 @@ progressbar.innerHTML = progressPercentage + '%';
         certifstat.innerHTML = "Not Issued";
         compstat.innerHTML = "Initiated (Start Soon)";
         document.getElementById("taskToDo").style.display="none";
+        if(hasHalfTimePassed(startingDate, endDate)){
+          document.getElementById('tasklink').innerHTML=`Note: Submit Your Task Before ${data.awardDate} To Recieve Certificate And For Completion Of Your Internship`
+            document.getElementById('tasklink').style.display="block";
+        }
     }
     else if(data.status=="Submitted"){
       certifstat.innerHTML = "Verification (In Progress)"
@@ -170,8 +174,7 @@ function taskshow(data,domainpdf,startingDate,endDate,duration){
         
   
         if (hasHalfTimePassed(startingDate, endDate)) {
-          document.getElementById('tasklink').innerHTML=`Note: Submit Your Task Before ${data.awardDate} To Recieve Certificate And For Completion Of Your Internship`
-            document.getElementById('tasklink').style.display="block";
+          
             document.getElementById('tasklinkbtn').style.display="block";
           
             
@@ -441,3 +444,7 @@ function setCookie(name, value, days) {
     // console.log(name + "=" + (value || "") + expires + "; path=/");
 
 }
+
+
+
+
