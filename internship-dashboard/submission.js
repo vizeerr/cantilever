@@ -100,21 +100,20 @@ function formhandler(userData) {
     try {
       const linkedBase64 = await convertFileToBase64(formData.get("linkedSS"));
       const paymentBase64 = await convertFileToBase64(formData.get("paymentSS"));
-      const instaBase64 = await convertFileToBase64(formData.get("instaSS"));
 
       formData.set("linkedBase", linkedBase64);
       formData.set("paymentBase", paymentBase64);
-      formData.set("instaBase", instaBase64);
-
+  
       const finalData = Object.fromEntries(formData.entries());
 
       const response = await fetch("https://script.google.com/macros/s/AKfycbwUZKiOUMiqD1_rku7A_MVsNnPexjEGR_qgnoEjxjnrw63oo_9iB2S03jBknugoC4NwWA/exec", {
         method: "POST",
         body: JSON.stringify(finalData),
-        
       });
-
+      
       const result = await response.json();
+      console.log(result);
+      
       if (result.status === "success") {
         showModal("Success", "Submitted successfully!");
         form.reset();
@@ -123,7 +122,10 @@ function formhandler(userData) {
       } else {
         throw new Error("Submission failed");
       }
+
     } catch (error) {
+      console.log(error);
+      
       showModal("Submission Error", "Something went wrong. Please try again later.");
     }
 
@@ -219,7 +221,7 @@ function validateTabData(data, tabIndex, duration) {
 
   if (tabIndex === 1) {
     ["linkedSS"].forEach(validateFileInput);
-    if (!data.linkedSS || !data.instaSS) {
+    if (!data.linkedSS) {
       errors.push("LinkedIn screenshots are required.");
     }
   }
@@ -230,7 +232,7 @@ function validateTabData(data, tabIndex, duration) {
 function collectTabData(tabIndex) {
   const fieldsByTab = {
     0: ["fullName", "email", "startDate", "awardDate", "internshipDomain", "durationField", "projOne", "projTwo", "projThree"],
-    1: ["linkedSS", "instaSS"],
+    1: ["linkedSS"],
   };
   const fields = fieldsByTab[tabIndex] || [];
   const data = {};

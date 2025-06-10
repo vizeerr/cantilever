@@ -137,6 +137,7 @@ progressbar.innerHTML = progressPercentage + '%';
     else if(data.status=="Submitted"){
       certifstat.innerHTML = "Verification (In Progress)"
       compstat.innerHTML = "Task Submitted"
+      document.getElementById('subNotif').style.display="block"
       document.getElementById('taskcontainer').style.display="none";
       document.getElementById("taskToDo").style.display="none";
     }
@@ -439,27 +440,4 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + (value || "") + expires + "; path=/";
     // console.log(name + "=" + (value || "") + expires + "; path=/");
 
-}
-
-
-
-
- ["linkedSS", "paymentSS", "instaSS"].forEach(validateFileInput);
-function validateFileInput(id) {
-  const input = document.getElementById(id);
-  input.addEventListener("change", function () {
-    const file = input.files[0];
-    const allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
-    const maxSize = 2 * 1024 * 1024;
-
-    if (file) {
-      if (!allowedTypes.includes(file.type)) {
-        showModal("Invalid File", "Only JPG, JPEG, and PNG formats are allowed.");
-        input.value = "";
-      } else if (file.size > maxSize) {
-        showModal("File Too Large", "File size must be less than 2MB.");
-        input.value = "";
-      }
-    }
-  });
 }
