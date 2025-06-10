@@ -112,7 +112,7 @@ function formhandler(userData) {
       });
       
       const result = await response.json();
-      console.log(result);
+      // console.log(result);
       
       if (result.status === "success") {
         showModal("Success", "Submitted successfully!");
@@ -124,7 +124,7 @@ function formhandler(userData) {
       }
 
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       
       showModal("Submission Error", "Something went wrong. Please try again later.");
     }
