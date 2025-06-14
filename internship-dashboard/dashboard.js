@@ -29,7 +29,7 @@ function checkveridata(){
       logindash.style.display = "none";
       Dashboard.setAttribute("style", "display:flex !important;");
       const interndata = JSON.parse(interndataobj);
-      if(interndata.version != "v1.2" || interndata.version == null){
+      if(interndata.version != "v1.3" || interndata.version == null){
         deleteCookie("internuid");
         checkveridata();
       }
@@ -150,7 +150,31 @@ progressbar.innerHTML = progressPercentage + '%';
 
 
 function taskshow(data,domainpdf,startingDate,endDate,duration){
-  const domainData = getTasksForDomain(data.domain,duration);
+      const start = new Date(startingDate);
+      const targetDate = new Date("2025-06-15");
+      let domainData = null;
+
+      if((start >= targetDate && data.domain == "Web Development" )&& (duration == "2 Month" || duration == "3 Month")){
+
+      const newData =  {
+        "web development": [ 
+          {
+            "duration":"2 Month",
+            "tasks": ["News platform", "TravelBuddy"],
+            "link": "https://drive.google.com/file/d/1f78kDW3uCIZqsoVU7rGxf99xfMTM5DO_/view?usp=drive_link"
+          },
+          {
+            "duration":"3 Month",
+            "tasks": ["News platform", "TravelBuddy"],
+            "link": "https://drive.google.com/file/d/1f78kDW3uCIZqsoVU7rGxf99xfMTM5DO_/view?usp=drive_link"
+          }
+        ]}
+      domainData = newData["web development"].find(entry => entry.duration.toLowerCase() === duration.toLowerCase())
+      }else{ 
+        domainData = getTasksForDomain(data.domain, duration);
+      }
+  
+        // const domainData = getTasksForDomain(data.domain,duration);
         const tasks = domainData.tasks;
         domainpdf.setAttribute('href',domainData.link)
         let taskbox = document.getElementById("taskbox");
@@ -402,7 +426,7 @@ document.getElementById('dashboardForm').addEventListener('submit', (e) => {
       .then(response => response.json())
       .then(data => {        
           setCookie("internuid",data.uniqueId,3);
-          data.version = "v1.2";
+          data.version = "v1.3";
           localStorage.setItem("interndata", JSON.stringify(data));
           checkveridata()
         
