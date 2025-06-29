@@ -28,15 +28,17 @@ function formhandler(userData) {
   let tabs = 0;
 
   const qrCode = document.getElementById('qrCode')
-  if(durationField.value = "1 Month"){
+  console.log(userData.duration);
+  
+  if(userData.duration == "1 Month"){
     qrCode.src="../assets/images/oneqr.png"
   }
   
-  if(durationField.value = "2 Month"){
+  if(userData.duration == "2 Month"){
     qrCode.src="../assets/images/twoqr.png"
   }
   
-  if(durationField.value = "3 Month"){
+  if(userData.duration == "3 Month"){
     qrCode.src="../assets/images/threeqr.png"
   }
 
