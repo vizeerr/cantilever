@@ -264,12 +264,12 @@ function getTasksForDomain(dom,duration) {
     {
       "duration":"1 Month",
       "tasks": ["Sentiment Analysis", "Credit Card Fraud"],
-      "link": "https://drive.google.com/file/d/1k2VKTlmkjGGgonsHk3xRhmV_LU4V3mrW/view?usp=drive_link"
+      "link": "https://drive.google.com/file/d/1pckKyJVhqdoyo3NCJZ2m4wztAafqtVU-/view?usp=drive_link"
     },
     {
       "duration":"2 Month",
       "tasks": ["Sentiment Analysis", "Credit Card Fraud"],
-      "link": "https://drive.google.com/file/d/1k2VKTlmkjGGgonsHk3xRhmV_LU4V3mrW/view?usp=drive_link"
+      "link": "https://drive.google.com/file/d/1pckKyJVhqdoyo3NCJZ2m4wztAafqtVU-/view?usp=drive_link"
     },
     {
       "duration":"3 Month",
