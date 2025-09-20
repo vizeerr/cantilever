@@ -2,6 +2,7 @@ const applyloader = document.getElementById("applyloader");
 const submiBTN = document.getElementById('submitBTN')
 submiBTN.disabled="true"
 handleSubmibtn(submiBTN)
+populateJoinDates()
 document.getElementById("internForm").addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -138,4 +139,48 @@ function handleSubmibtn(submiBTN) {
     });
     submiBTN.disabled = !allFilled;
   }
+}
+
+
+function populateJoinDates() {
+  const select = document.getElementById("joinDate");
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth(); // Jan = 0
+
+  const makeDate = (y, m, d) => new Date(y, m, d);
+
+  let candidateDates = [
+    makeDate(year, month, 1),
+    makeDate(year, month, 15),
+    makeDate(year, month + 1, 1),
+    makeDate(year, month + 1, 15)
+  ];
+
+  // Keep only dates after "today"
+  let upcoming = candidateDates.filter(d => d >= new Date(today.getFullYear(), today.getMonth(), today.getDate()));
+
+  // Pick only next 2
+  upcoming = upcoming.slice(0, 1);
+
+  // Clear old options except placeholder
+  select.querySelectorAll("option:not([disabled])").forEach(opt => opt.remove());
+
+  // Add new options
+  upcoming.forEach(date => {
+    const yyyy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, "0");
+    const dd = String(date.getDate()).padStart(2, "0");
+    const value = `${yyyy}-${mm}-${dd}`;
+
+    const label = date.toLocaleDateString("en-GB", {
+      day: "2-digit",
+      month: "long"
+    });
+
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = label;
+    select.appendChild(option);
+  });
 }
